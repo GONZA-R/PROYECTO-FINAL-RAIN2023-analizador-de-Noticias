@@ -1,0 +1,30 @@
+Título: 
+Ciberataque a la CNV: presentaron una denuncia ante la Justicia mientras intentan restablecer los servicios
+
+Resumen: 
+La Comisión Nacional de Valores denunció el hackeo sufrido la semana pasada. El organismo aseguró que conserva toda su información al tiempo que recupera su actividad “en forma paulatina”. Un grupo de hackers, “Medusa”, se adjudicó la maniobra
+
+Contenido: 
+
+13 Jun, 2023
+La Comisión Nacional de Valores (CNV) denunció ante la Unidad Fiscal Especializada en Ciberdelincuencia (UFECI) el ataque informático sufrido el miércoles pasado, al tiempo que “continúa restableciendo los servicios en forma paulatina”, según explicó el organismo en un comunicado, en el que explicó que “conserva la totalidad de la información de sus sistemas gracias a las acciones de prevención llevadas adelante” por la entidad.
+El ataque al organismo regulador del mercado de capitales comenzó el miércoles 7 a la madrugada: “A las 7.30 de la mañana, después de ser detectado, se cortaron preventivamente todos los vínculos externos y se detuvo el proceso iniciado por el código malicioso del tipo ransomware”.
+“No hay evidencia de que el ataque se haya propagado a otros agentes regulados u organismos que mantienen vinculación con la CNV, y no se reportaron inconvenientes por parte de los agentes, mercados ni sistemas de custodia para desarrollar la operatoria normalmente. Al momento, se encuentran reestablecidos la mayoría de los servicios que hacen al funcionamiento de la CNV y al vínculo con sus regulados”, concluyó el organismo.
+La CNV registra las operaciones diarias del mercado financiero y tiene acceso a información sensible de miles de inversores y empresas emisoras de activos negociables en el país. El software utilizado para el hackeo es uno que está ganando notoriedad en el mundo de la cyberseguridad: Medusa.
+En el opaco mundo de los hackers, Medusa se volvió enormemente visible en base a varios golpes exitosos contra empresas e instituciones. La notoriedad, se sabe, crea imitadores con lo cual, genera además ataques de terceros que se hacen pasar por el temido grupo. Pero de una forma o de la otra, explican los expertos, generan un fenómeno temible.
+Según el sitio especializado BleepingComputer, la operación de Medusa comenzó en junio de 2021, pero tuvo una actividad relativamente baja, con pocas víctimas. Sin embargo, en 2023 la banda de ransomware aumentó su actividad y lanzó un “Medusa Blog” utilizado para filtrar datos de las víctimas que se niegan a pagar un rescate.
+El grupo tiene un sitio de filtración de datos llamado “Medusa Blog”, que se utiliza como parte de la estrategia de extorsión, ya que suelen hacer públicos los datos de las empresas u organizaciones que se resisten a pagar el rescate.
+Esto es lo que revela que la CNV fue víctima del grupo, porque los datos del ente regulador del mercado argentino están ya publicados en ese blog alojado en la darkweb, la parte de Internet a la que los buscadores como Google no acceden.
+Cuando se añade una víctima, sus datos no se publican inmediatamente. En su lugar, los hackers dan a las víctimas opciones de pago para ampliar la cuenta regresiva que marca el momento en que se harán públicos los datos, para borrarlos o para descargarlos todos. Cada una de estas opciones tiene precios diferentes.
+En el caso de la CNV, la publicación de Medusa le exige a la entidad pagar USD 10.000 para retrasar un día la publicación de los datos, USD 500.000 para borrarlos y otros USD 500.000 para recuperarlos, según capturas del Medusa Blog obtenidas por BTR Consulting.
+Lo que no está claro es que datos tienen los hacker en sus manos. La peligrosidad de la información, dijeron fuentes con pasado en la CNV, depende de qué clase de información robaron los piratas informáticos.
+“Hay dos clases de datos. Unos, de la propia organización, que pueden ser intercambios de mails entre empleados o procesos administrativos que tarde o temprano se hacen públicos, eso no es relevante”, dijo un conocedor del ente regulador.
+“El tema son los datos de los regulados que por secreto bursátil la CNV sólo comparte con otros reguladores como el Banco Central, la AFIP u otros. Es información más desagregada sobre que muestra qué compra, qué vende y quién es el destinatario final de cada operación. Esa es la información potencialmente más sensible”, agregó.
+Seguir leyendo:
+
+URLs de las imagenes:
+
+https://cloudfront-us-east-1.images.arcpublishing.com/infobae/UT5R6VUTRBAMLAO4URCC5IJ6ZM.jpg
+https://cloudfront-us-east-1.images.arcpublishing.com/infobae/TOQQOICBZ5GQRIF3DCJG3VPUV4.jpg
+https://cloudfront-us-east-1.images.arcpublishing.com/infobae/IUZJXXGB6ZA4XDYD7ZL6Y3NOBA.jpg
+

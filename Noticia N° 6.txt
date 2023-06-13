@@ -1,0 +1,29 @@
+Título: 
+Cuánto hay que ganar para ser de clase media en la Ciudad de Buenos Aires
+
+Resumen: 
+El costo de la vida que mide la Dirección de Estadísticas y Censos porteña para el estrato medio subió 6,95% en mayo
+
+Contenido: 
+
+13 Jun, 2023
+Una familia tipo que vive en la Ciudad de Buenos Aires requirió $342.565,24 en mayo para ser considerada de clase media según los criterios de estratificación social que utiliza la Ciudad Autónoma de Buenos Aires. Ese umbral, de unos $11.418,84 por día, subió 6,95% respecto a abril. En términos interanuales, los ingresos necesarios para alcanzar ese nivel socioeconómico aumentaron 122,71% en comparación con mismo mes del año pasado.
+La Dirección General de Estadísticas y Censos de la Ciudad Autónoma de Buenos Aires publicó los datos de Costo de vida, Líneas de pobreza y Canastas de Consumo para la Ciudad de Buenos Aires de mayo de 2023. El informe, entre otros datos, establece los criterios actualizados que toma el distrito para delimitar los niveles socioeconómicos en base al nivel ingreso.
+De esta manera, una familia de cuatro integrantes necesitó disponer entre $342.565,24 y $1.096.208,75 durante el mes pasado para entrar en el “sector medio”. Cabe aclarar que la familia tipo en cuestión es propietaria del inmueble en el que vive en la simulación del ente estadístico, por lo que las necesidades mensuales no incluyen el costo del alquiler.
+El reporte mensual que elabora el organismo estadístico establece una estratificación social en base a cinco niveles socioeconómicos.
+- En situación de indigencia: hogares cuyo ingreso total mensual no alcanza para cubrir la Canasta Básica Alimentaria (CBA - Línea de indigencia). Al mes pasado, se consideraba indigentes a las familias que no alcanzaron los $125.701,89 mensuales. La línea de indigencia es la que más subió en términos interanuales, con un avance del 131,15 por ciento.
+-En situación de pobreza no indigente: hogares cuyo ingreso total mensual no alcanza para cubrir la Canasta Básica Total (CBT – Línea de pobreza) pero permite al menos adquirir la CBA. El rango de ingresos para este estrato quedó entre $125.701,89 y $222.601,06 por mes.
+- No pobres vulnerables: hogares cuyo ingreso total mensual es de al menos la CBT y no alcanza la Canasta Total (CT) del Sistema de Canastas de Consumo. Ganan entre $222.601,07 y $274.052,18 al mes.
+- Sector medio frágil: hogares cuyo ingreso total mensual es de al menos la CT y no alcanza 1,25 veces la CT del Sistema de Canastas de Consumo. Tienen ingresos mensuales entre $274.052,19 y $342.565,23 mensuales.
+- Sector medio “clase media”: hogares cuyo ingreso total mensual es de al menos 1,25 veces la CT y no alcanza cuatro veces la CT del Sistema de Canastas de Consumo. Ganan desde $342.565,24 y $1.096.208,75 al mes.
+- Sector acomodado: hogares cuyo ingreso mensual es de cuatro veces o más la CT del Sistema de Canastas de Consumo. Son ingresos de $1.096.208,76 o más al mes.
+“Esta estratificación brinda, por un lado, la posibilidad de identificar a los sectores más desprotegidos de la sociedad en términos de situaciones de indigencia y de pobreza y, por el otro, da cuenta de la heterogeneidad de los sectores no pobres de manera de facilitar un análisis más integral de la situación social de la Ciudad de Buenos Aires, la de cada uno de los estratos definidos y su evolución en el tiempo”, explica el informe.
+En base a esos estratos, los ingresos teóricos necesarios de una pareja de clase media compuesta por una mujer y un varón de 35 años de edad, ambos económicamente activos y propietarios de la vivienda en la que habitan, con dos hijos varones de 9 y 6 años, se dispararon en el último año un 122,71%, según la Dirección de Estadísticas y Censos de la Ciudad.
+Visto en términos de necesidades diarias, esa misma familia tipo necesitó el mes pasado al menos $11.418,84 por día para alcanzar un nivel de consumo consecuente con el estrato medio.
+Para no caer en la pobreza, mientras tanto, se necesitaron al menos $222.601,07 al mes, mientras que quienes superan ese nivel pero no alcanzan los $274.052,18 mensuales son considerados “no pobres vulnerables”.
+Seguir leyendo:
+
+URLs de las imagenes:
+
+https://cloudfront-us-east-1.images.arcpublishing.com/infobae/KDMFTCZH4VEUFFSAPAXVPBMU24.jpg
+
