@@ -10,20 +10,21 @@ def web_scraping(links):
     soup = BeautifulSoup(html, 'html.parser')
 
 
-    titulo = soup.find('div', class_='section-2-col article-header')
+    titulo = soup.find('div', class_='col-12')
     titulo = titulo.find('h1').text.strip()
 
     #obtener subtitulo de la noticia
-    resumen = soup.find('div', class_='section-2-col article-header')
-    resumen = resumen.find('h2').text.strip()
+    resumen = soup.find('h2', class_='com-subhead --bajada --m-xs-')
+    resumen = resumen.text.strip()
+    
+
 
     print(titulo)
     print(resumen)
-            
 
-    # Buscar el div con la clase "article-main-content article-text"
-    #div_contenido = soup.find('div', class_='article-main-content article-text')
-    div_contenido = soup.find('div', class_=['article-main-content article-text','article-main-content article-text no-main-image'])
+    
+
+    div_contenido = soup.find('div', class_='col-deskxl-10 offset-deskxl-1 col-desksm-11')
 
 
     # Crear una lista para almacenar los párrafos
@@ -45,13 +46,17 @@ def web_scraping(links):
         print(lista_parrafos)
     else:
         print("No se encontró el div de contenido.")
-    
-    img_principales = soup.find('div', {'class': 'section-2-col article-main-image'})
+   
+
+
+    img_principales = soup.find('div', {'class': 'placeholder'})
     if img_principales:
         img_principales = img_principales.find_all('img')
     else:
         img_principales = None
     url_imagen_principal = [img['src'] for img in img_principales] if img_principales else []
+
+    print(url_imagen_principal)
     
     # Diccionario con cada elemento de la pagina a consultar
     noticias.append({'titulo': titulo,'resumen': resumen, 'contenido': lista_parrafos,'url_imagenes':url_imagen_principal}) 
@@ -70,6 +75,8 @@ def web_scraping(links):
 
 
 # Ejemplo de uso
-url = 'https://www.pagina12.com.ar/557819-sin-colectivos-en-el-interior'
+#url = 'https://www.pagina12.com.ar/557819-sin-colectivos-en-el-interior'
 #url = 'https://www.pagina12.com.ar/557660-general-motors-produce-mas'
+#url = 'https://www.lanacion.com.ar/economia/cuanto-aumentan-las-prepagas-en-julio-2023-nid13062023/'
+url = 'https://www.eldestapeweb.com/seccion/economia'
 web_scraping(url)
