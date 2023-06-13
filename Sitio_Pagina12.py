@@ -49,16 +49,15 @@ def web_scraping(links):
 
 
         # Buscar el div con la clase "article-main-content article-text"
-        div_contenido = soup.find('div', class_='article-main-content article-text')
+        #div_contenido = soup.find('div', class_='article-main-content article-text')
+        div_contenido = soup.find('div', class_=['article-main-content article-text','article-main-content article-text no-main-image'])
+        lista_parrafos = []
 
-      
 
         if div_contenido:
             # Buscar todos los elementos <p> dentro del div
             parrafos = div_contenido.find_all('p')
               # Crear una lista para almacenar los párrafos
-            lista_parrafos = []
-
             
 
             # Recorrer los elementos <p> y obtener el texto de cada uno
@@ -66,7 +65,7 @@ def web_scraping(links):
                 texto = parrafo.get_text(strip=True)
                 lista_parrafos.append(texto)
             
-            break
+            pass
         else:
             print("No se encontró el div de contenido.")
         
