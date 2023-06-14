@@ -10,32 +10,45 @@ def web_scraping(links):
     soup = BeautifulSoup(html, 'html.parser')
 
 
-    titulo = soup.find('div', class_='col-12')
-    titulo = titulo.find('h1').text.strip()
-
-    #obtener subtitulo de la noticia
-    resumen = soup.find('h2', class_='com-subhead --bajada --m-xs-')
-    resumen = resumen.text.strip()
-    
+    titulo = soup.find('div', class_='article-info-wrapper')
+    if titulo:
+            titulo = titulo.find('h1').text.strip()
+    else:
+            titulo = ""  # O cualquier valor por defecto que desees asignar si no se encuentra el elemento
 
 
     print(titulo)
+
+    #obtener subtitulo de la noticia
+    resumen = soup.find('p', class_='preview newDetailTextChange')
+    if resumen:
+            div_fecha = resumen.find('span', class_='detail-date')
+            if div_fecha:
+                div_fecha.extract()  # Eliminar el div "notapropia" del árbol del documento
+            
+            resumen = resumen.text.strip()
+    else:
+        resumen = ""  # O cualquier valor por defecto que desees asignar si no se encuentra el elemento
+
+
     print(resumen)
 
     
 
-    div_contenido = soup.find('div', class_='col-deskxl-10 offset-deskxl-1 col-desksm-11')
-
+    div_contenido = soup.find('div', class_='note-body newDetailTextChange clearfix')
 
     # Crear una lista para almacenar los párrafos
         
     lista_parrafos = []
 
     if div_contenido:
+
+        div_notapropia = div_contenido.find('div', class_='notapropia')
+        if div_notapropia:
+            div_notapropia.extract()  # Eliminar el div "notapropia" del árbol del documento
+
         # Buscar todos los elementos <p> dentro del div
         parrafos = div_contenido.find_all('p')
-
-        
 
         # Recorrer los elementos <p> y obtener el texto de cada uno
         for parrafo in parrafos:
@@ -49,12 +62,16 @@ def web_scraping(links):
    
 
 
-    img_principales = soup.find('div', {'class': 'placeholder'})
+    img_principales = soup.find('img', {'class': 'media-img lazyautosizes ls-is-cached lazyloaded'})
+    
+    
+
     if img_principales:
         img_principales = img_principales.find_all('img')
     else:
         img_principales = None
     url_imagen_principal = [img['src'] for img in img_principales] if img_principales else []
+    
 
     print(url_imagen_principal)
     
@@ -78,5 +95,7 @@ def web_scraping(links):
 #url = 'https://www.pagina12.com.ar/557819-sin-colectivos-en-el-interior'
 #url = 'https://www.pagina12.com.ar/557660-general-motors-produce-mas'
 #url = 'https://www.lanacion.com.ar/economia/cuanto-aumentan-las-prepagas-en-julio-2023-nid13062023/'
-url = 'https://www.eldestapeweb.com/seccion/economia'
+url = 'https://www.eltribuno.com/jujuy/nota/2023-6-14-1-0-0-en-ledesma-continuan-con-las-negociaciones'
 web_scraping(url)
+
+

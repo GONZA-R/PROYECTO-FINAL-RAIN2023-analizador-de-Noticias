@@ -15,14 +15,14 @@ def conseguir_url(url):
             response = requests.get(url)
             soup = BeautifulSoup(response.text, 'html.parser')
             urls_noticias=[]
-            divs = soup.find_all('div', {'class': 'contenedor notas_seccion_ grid'}) #Segun la estructura html de la pagina
+            divs = soup.find_all('div', {'class': 'mainSite container economia'}) #Segun la estructura html de la pagina
             #los links a necesitar se encuentran en la class = d23_content-section
             for div in divs:
                 links = div.find_all('a')
                 for link in links:
                     href = link.get('href')
-                    #if href and 'autos' not in href and 'campo' not in href and 'economia/' in href and not href.startswith('https://www.lanacion.com.ar/economia'):
-                    urls_noticias.append(href)
+                    if href and 'ttag' not in href:
+                        urls_noticias.append(href)
                             
             return urls_noticias
 #####################################################################################################
@@ -39,26 +39,31 @@ def web_scraping(links):
         soup = BeautifulSoup(html, 'html.parser')
 
 
-        titulo = soup.find('div', class_='item is-12 lbp_item')
-
-
+        titulo = soup.find('div', class_='article-info-wrapper')
         if titulo:
-            titulo = titulo.find('h1').text.strip()
+                titulo = titulo.find('h1').text.strip()
         else:
-            titulo = ""  # O cualquier valor por defecto que desees asignar si no se encuentra el elemento
+                titulo = ""  # O cualquier valor por defecto que desees asignar si no se encuentra el elemento
+
+
+        print(titulo)
 
 
         #obtener subtitulo de la noticia
-        resumen = soup.find('h2', class_='intro')
-
-
+        resumen = soup.find('p', class_='preview newDetailTextChange')
         if resumen:
-            resumen = resumen.text.strip()
+                div_fecha = resumen.find('span', class_='detail-date')
+                if div_fecha:
+                    div_fecha.extract()  # Eliminar el div "notapropia" del árbol del documento
+                
+                resumen = resumen.text.strip()
         else:
             resumen = ""  # O cualquier valor por defecto que desees asignar si no se encuentra el elemento
+        
+        
+        print(resumen)
 
-
-        div_contenido = soup.find('div', class_='cuerpo lbp-cuerpo')
+        div_contenido = soup.find('div', class_='note-body newDetailTextChange clearfix')
 
 
         # Crear una lista para almacenar los párrafos
@@ -66,23 +71,24 @@ def web_scraping(links):
         lista_parrafos = []
 
         if div_contenido:
+
+            div_notapropia = div_contenido.find('div', class_='notapropia')
+            if div_notapropia:
+                div_notapropia.extract()  # Eliminar el div "notapropia" del árbol del documento
+
             # Buscar todos los elementos <p> dentro del div
             parrafos = div_contenido.find_all('p')
 
-            
-
             # Recorrer los elementos <p> y obtener el texto de cada uno
             for parrafo in parrafos:
-                if 'Este contenido se hizo gracias al apoyo de la comunidad de El Destape. Sumate. Sigamos haciendo historia.' in parrafo.get_text(strip=True):
-                    continue
-                if 'SUSCRIBITE A EL DESTAPE' in parrafo.get_text(strip=True):
-                    continue
                 texto = parrafo.get_text(strip=True)
                 lista_parrafos.append(texto)
-            pass
 
+            # Imprimir la lista de párrafos
+            print(lista_parrafos)
         else:
             print("No se encontró el div de contenido.")
+   
             
         img_principales = soup.find('div', {'class': 'media nota-media'})
         if img_principales:
@@ -128,18 +134,19 @@ def guardar_noticias(nombre_archivo,noticia):
 
 clear_screen()#Borra pantalla
 
-url='https://www.eldestapeweb.com/seccion/economia/'
+url='https://www.eltribuno.com/jujuy/seccion/economia/'
 lista_de_noticias=conseguir_url(url)
 lista_de_noticias = list(set(lista_de_noticias))
+lista_de_noticias = [noticia for noticia in lista_de_noticias if noticia is not None]
 lista_de_noticias.sort()
 
 
-url_base = 'https://www.eldestapeweb.com'
+url_base = 'https://www.eltribuno.com'
 
 lista_url_completa=[] #la url completa de las noticias va estar formado por el url base + cada link de
 #la lista de noticias
 
-print('Accediendo a todas las paginas de https://www.eldestapeweb.com ...\n')
+print('Accediendo a todas las paginas de https://www.eltribuno.com ...\n')
 for noticia in lista_de_noticias:
     lista_url_completa.append(url_base+noticia)
 #######################################################################

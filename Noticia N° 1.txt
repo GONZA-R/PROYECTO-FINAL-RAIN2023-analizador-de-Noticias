@@ -1,26 +1,16 @@
 Título: 
-Bitcoin hoy: la cotización al 13 de junio
+El sábado inicia el pago a agentes de la administración pública
 
 Resumen: 
-La criptomoneda cotiza a US$25.879,97; este precio muestra una variación del 100% del valor de las últimas 24 horas
+El cronograma previsto se extenderá hasta el miércoles 7.
 
 Contenido: 
 
-Bitcoin (BTC) cotiza hoy, 13 de junio, a US$25.879,97, según el portal Live Coin Watch.
-Este precio lo posiciona 100% respecto de su valor hace 24 horas y 96% en comparación con el mismo día de la semana pasada.
-El dominio actual del token (capitalización de mercado) es US$502.108.608.328.
-Bitcoin es la criptomoneda (moneda virtual) más importante de la actualidad. 
-    Cada vez más aceptada en todo el mundo, se puede usar para comprar productos y servicios.
-Cada bitcoin es como un archivo que se almacena en una "billetera digital", ya sea en el teléfono celular, en una computadora o en una tablet. 
-    Las personas y empresas pueden realizar transferencias de bitcoins o una parte de un bitcoin entre diferentes billeteras digitales.
-Cada una de estas transacciones quedan registradas en una lista pública llamada blockchain. De esta forma, se puede conocer la historia de un bitcoin, 
-    con el fin de evitar robos, copias falsas o deshacer transacciones.
-Existen tres maneras principales para obtener un bitcoin. Se pueden comprar usando dinero real (dólares, por ejemplo); se pueden vender bienes y servicios y cobrar en bitcoin; 
-    y se pueden "minar" (crear como se dice en la jerga del mercado de criptomonedas) en una computadora.
-Para minar o crear nuevos bitcoins se necesitan computadoras de alta potencia que, a través de la resolución de cálculos computacionales extremadamente complejos, 
-    reciben como recompensa un bitcoin.
+Tesorería de la Provincia confirmó que el cronograma de pagos correspondiente al mes de mayo del 2023 iniciará este sábado, donde percibirán sus haberes Policía de la Provincia y Organismos Autárquicos.
+En tanto, el lunes 5 cobrarán Administración Central, Ministerio de Salud, Ministerio de Desarrollo Humano y Servicio Penitenciario. El martes 6 de junio, harán lo propio los agentes de Educación Nivel Inicial y Primario, Educación Secundaria y Terciaria.
+Finalmente, el miércoles 7 percibirán sus haberes el personal de Municipios, Organismos Descentralizados, Poder Judicial, Poder Legislativo, Tribunal de Cuentas y Funcionarios.
+
 
 URLs de las imagenes:
 
-https://www.lanacion.com.ar/resizer/v2/ethereumethcryptocurrencysilverethereumcoinontheb-YW3LUS3BQ5FXDHO372LBH3GDII.JPG?auth=8bc3bcc5b3a6176c02f5f40b1a1bed3baf510a84da768e6cfa4226f2eea9fe20&width=309&height=206&quality=80&smart=false
 

@@ -1,57 +1,28 @@
 Título: 
-Criptomonedas hoy: cotización de las principales divisas digitales al 13 de junio
+Alerta en el mercado por la depreciación del yuan y el impacto en las reservas
 
 Resumen: 
-Bitcoin cotiza a US$25.879,97 y Ethereum a US$1741.42, una variación de 100% y 1,0% en las últimas 24 horas, respectivamente
+Las fondos cayeron en casi US$ 3.000 millones desde el arranque de mayo, al pasar de US$ 35.296 millones a US$ 32.484 millones.
 
 Contenido: 
 
-El bitcoin (BTC) cotiza hoy, 13 de junio, a US$25.879,97, según el portal Live Coin Watch.
-Este precio lo posiciona 100% respecto de su valor hace 24 horas y 96% en comparación con el mismo día de la semana pasada.
-La capitalización de mercado actual del token es US$502.108.608.328.
-Ethereum (ETH), la segunda criptomoneda con mayor capitalización en el mercado, se ubica en US$1741.42, 
-    un cambio de 1,0% de su precio hace un día.
-Entre las principales altcoins -los tokens alternativos a bitcoins- BNB, la criptomoneda de la plataforma Binance, cotiza a US$241,77. 
-    Cardano (ADA), se ubica a US$0,27 y Solana (SOL) a US$15,0.
-Las variaciones de las últimas 24 horas fueron de 1,05%, 0,99% y 0,98%, respectivamente.
-La capitalización total del mercado de criptomonedas es US$1.066.893.530.784,0 billones, una variación de 0,47% en el último día.
-Por otro lado, el volumen operado en las últimas 24 horas es de US$26.470.892.780,0.
-Las cotización de 10 criptomonedas
-•Bitcoin (BTC) US$25.879,97
-•Ethereum (ETH) US$1.741,42
-•BNB (BNB) US$241,77
-•Cardano (ADA) US$0,27
-•Dogecoin (DOGE) US$0,06
-•Solana (SOL) US$15,0
-•Polkadot (DOT) US$4,62
-•Shiba Inu (SHIB) US$0,0
-•Helium (HNT) US$1,26
-•Tellor (TRB) US$9,31
-¿Qué son las criptomonedas?
-Una criptomoneda es un activo digital que utiliza la criptografía para garantizar la seguridad y titularidad de las transacciones entre personas. 
-    Pese a la volatilidad que las caracteriza, los “tokens” han crecido en su popularidad en los últimos años. 
-    Bitcoin, el de mayor capitalización en el mercado, nació en 2009. Tiene una emisión finita que está matemática y estadísticamente predefinida. 
-    Se “acuñará” un total de 21 millones de unidades. A su vez, la cantidad emitida se reduce a la mitad cada cuatro años. 
-    Esto permite predecir cuánta emisión monetaria habrá hasta alcanzarse el total de monedas en el año 2140. 
-    Las altcoins, por su parte, son criptomonedas distintas que el bitcoin y las stablecoins, las aquellas que buscan estar equiparadas con otro activo, 
-    como una divisa oficial -usualmente la divisa estadounidense- o un commodity. 
-    Una de las más famosas es USDT, del protocolo Tether y USDC, de Coinbase. Ambas tienen “peg” con el dólar. 
-    La compra y venta de criptomonedas puede realizarse en plataformas especializadas. La más popular en el mundo, de acuerdo a volumen de operación, es Binance. 
-    Para comenzar a operar, los usuarios deben crear una cuenta a través de la web o la aplicación.
-    Sin embargo, la inversión en este tipo de activos digitales conlleva un riesgo elevado ya que el mercado es fluctuante y se caracteriza por su volatilidad.
-Criptoinvierno
-En un contexto de crisis económica mundial, con tasas de inflación inéditas en Estados Unidos y Europa, 
-    y una guerra entre Rusia y Ucrania que nadie sabe cuándo -ni cómo- terminará, las criptomonedas sufren uno de sus peores momentos yEn un informe titulado“Criptoinvierno: claves para entender la caída de las criptomonedas a nivel mundial”, 
-    la periodista la BBC Cecilia Barría explica que esta caída abrupta llegó justo después del mejor momento histórico del mundo cripto.En apenas cinco años, un bitcoin pasó de valer US$1000 a US$68.000.
-La periodista señala quese determina con una regla “bastante básica”, la oferta y la demanda.
-    “Cuando más personas quieren comprar, el precio sube. Y cuando a nadie le interesa, el precio baja”, sintetiza. 
-    Pero aclara que no ocurre lo mismo que en Wall Street. “Las criptomonedas no son acciones de una empresa. 
-    Son, como ya sabés, dinero digital, y eso significa quenadie las regula, ninguna autoridad las emite y, claro, no hay bancos que las guarden.
-    Entonces,cómo se mueven sin ningún control, las subidas y las bajadas son frenéticas”, precisa Barría en el informe.
-El términocriptoinvierno ocrashcriptose acuñó en la primera gran caída de las criptomonedas, que se dio justo antes del último auge, 
-    enel que el bitcoin rozó los US$69.000, en noviembre del 2021.
+Las reservas del Banco Central siguen en caída no sólo por las ventas diarias de divisas sino por la devaluación que viene sufriendo el yuan, la moneda china en la que están parte de los fondos que tiene la autoridad monetaria, según cálculos de consultoras privadas.
+No obstante, existen distintas lecturas sobre el fenómeno entre los especialistas. Alguno sostienen que si los yuanes acordados con China son de "libre disponibilidad", como dijo el ministro de EconomíaSergio Massa, la depreciación del yuan afecta las reservas.
+En cambio, otros expertos sostienen que los yuanes no sirven para intervenir en el mercado y sólo se puede utilizar para importar bienes desde China, por lo que no impacta en el respaldo del BCRA. Es un tema que empezó a seguirse con más detalle por parte de los operadores tras la devaluación del yuan de las últimas semanas.
+Las reservas cayeron en casi US$ 3.000 millones desde el arranque de mayo, al pasar de US$ 35.296 millones a US$ 32.484 millones. Parte de esa pérdida se explicó por la devaluación de la moneda china. En mayo, el dólar subió de 6,91 a 7,13 yuanes, una devaluación cercana a 3%, lo que provocó una caída de reservas por US$ 500 millones, según la consultora EcoGo.
+La escasez de reservas internacionales del Banco Central llevó al Gobierno a renovar y ampliar la semana pasada el swap con China, un intercambio de monedas que permite que la Argentina pague con yuanes las importaciones y libere para otros usos los dólares que se destinaban al comercio con el gigante asiático.
+Este convenio, que se inició en 2009 cuando el presidente del Banco Central era Martín Redrado, más la dificultad para retener dólares hizo que ya el 55% de las reservas brutas -que rondan los US$ 32.500 millones- estén integradas con yuanes y más expuestas a los movimientos de esa moneda.
+El swap por 130.000 millones de yuanes, que era de 19.000 millones de dólares, según informó Economía, ya está más cerca de US$ 18.000 millones, según cálculos privados.
+No obstante, Marcelo Elizondo, especialista en Comercio Exterior, consideró que con una devaluación del yuan "las reservas pueden tener una merma en su nominalidad porque se computan en dólares. Pero, en términos prácticos, el yuan solo se utiliza para pagar importaciones. No es verdad que se puede usar para intervenir el mercado cambiario. De modo que en términos prácticos no hay mayor perjuicio (si se sigue devaluando), porque vas a seguir pagando importaciones desde China".
+Pero sí admite que el problema que puede ocurrir es que la devaluación del yuan haga subir los precios en esa moneda de los productos que compramos desde China.
+"En ese caso ya no es un problema de reservas, sino de que tengamos que pagar más las importaciones. Pero eso será un problema mundial, no solo nuestro", indicó el especialista.
+Pero aclara que para que eso suceda debería haber "una depreciación más sostenida y grande del yuan".
+"La verdad es que se ha usado menos de la mitad del primer tramo del swap, de US$ 5.000 millones. Y se concedió un segundo tramo de igual monto para después de haber usado el primer tramo, que -por alguna razón está un poco demorado", explica Elizondo.
+A una semana de que Massa anunció la renovación del swap, el Banco Central de China (PBOC) confirmó el acuerdo en un escueto comunicado.
+"Con la aprobación del Consejo de Estado, el Banco Popular de China (BPC) y el Banco Central de Argentina (BCRA) han renovado recientemente el acuerdo bilateral de swap de divisas.
+El tamaño del acuerdo es de 130.000 millones de yuanes o 4,5 billones de pesos. El acuerdo tiene un vencimiento de 3 años", indicaron, sin hacer referencia a los US$ 5.000 millones o 35 mil millones de yuanes de libre disponibilidad ni su ampliación a 70.000 millones, como informó Economía.
+Massa había asegurado que las condiciones del pacto (como cuál es la tasa o para qué se puede usar) estaban amparadas en un acuerdo de confidencialidad.
 
 URLs de las imagenes:
 
-https://www.lanacion.com.ar/resizer/v2/bitcoinsandnewvirtualmoneyconceptgoldbitcoinswith-QMVOSIVTONFH7HKTFTPFKK6G2A.JPG?auth=3195083f5d634a9d197f6a1dad92530cfcbf487d8a20aea13b573217d5f6ef3a&width=309&height=206&quality=80&smart=false
 

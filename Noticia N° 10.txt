@@ -1,21 +1,19 @@
 Título: 
-Dato oficial: cuánto hay que ganar para ser de clase media en la Ciudad de Buenos Aires
+Hackearon la CNV y exigen un exorbitante monto para no revelar información
 
 Resumen: 
-En mayo requirieron ingresos por $342.565,24 para formar parte de ese segmento socioeconómico, sin incluir eventuales gastos de alquiler
+Los hackers establecieron una semana como plazo para no divulgar la información y base de datos vulnerada de la Comisión Nacional de Valores.
 
 Contenido: 
 
-En mayo,una familia de cuatro miembros (dos adultos de 35 años y dos hijos de 6 y 9)necesitó$342.565,24para ser considerado de clase media en la Ciudad de Buenos Aires, de acuerdo con la oficina de estadísticas del gobierno porteño. Estos datos oficiales -que no incluyen en sus estimaciones ni alquiler ni expensas- reflejan las barreras entre distintos grupos socioeconómicos.
-En abril, había necesitado $320.278,95.La variación de un mes a otro fue de 6,96%, por debajo de la inflación para el distrito, que resultó ser de 7,5%y de 122,71% en los últimos 12 meses. La medición respecto de otros segmentos de la población refleja que la misma familia requiere de un ingreso mínimo de $1.096.208,76 para estar entre los “sectores acomodados”, o de $274.052,19 para ser considerada “frágil”.
-El estudio también marca cuál es la canasta básica total (CBT), el conjunto de bienes y servicios para satisfacer las necesidades comunes de la población, indicador con el cual se define la línea de pobreza. Para esa familia tipo, se estableció un monto básico de$222.601 en mayo, un 6,73%más frente al mes anterior.
-La canasta básica alimentaria (CBA), por otra parte, refleja los ingresos necesarios para obtener los alimentos requeridos en un mes y marca la línea de indigencia. Para esa misma familia tipo, la barrera se ubicó en los $125.702 el mes pasado. El incremento fue de 4,98%, muy por debajo de la inflación en alimentos reportada por el gobierno de la Ciudad hace algunos días, que reflejó una suba generalizada en el segmento de 6,6%.
-El informe también contempla otro tipo de grupos familiares, como una pareja de jubilados con vivienda propia. Ellos tendrían que haber percibido, teniendo en cuenta que no tienen empleo,$110.179 para no ser pobre y $63.469 para no ser indigentes.Para dos jóvenes de 25 años que requieren de alquiler, la cifra asciende a los $150.768.
-Lainflaciónen la Ciudad de Buenos Aires en mayo fue7,5%, lo que implicó una suba de 114,4% en los últimos 12 meses. Los incrementos en rubros regulados, como la luz o el agua, fueron muy superiores a los de los estacionales. Los primeros acumularon 10,3% de alza y los segundos, 3,5%.
-Vivienda, agua, electricidad y gasaumentó fue el ítem de mayor aumento, con12,5%. Se debe al impacto de los ajustes en las tarifas residenciales del servicio de electricidad y a las subas en los precios de los alquileres. La variación interanual del 130,8% resultó superior a la general en casi 15 puntos porcentuales. Le siguió Bebidas alcohólicas y tabaco (8,6%) y Prendas de vestir y calzado (7,9%).
-Alimentos y bebidas no alcohólicas, un rubro de gran preocupación por su impacto en los hogares, promedió una suba de6,6%, casi un punto por debajo de la inflación general y por debajo de las estimaciones privadas que arrojaron subas de hasta 10 puntos en el ámbito nacional en mayo. El principal impulso provino de Leche, productos lácteos y huevos (12,2%) y Pan y cereales (10,1%) y, en menor medida, se destacaron las alzas en Azúcar, repostería y postres (11,1%) y en Carnes y derivados (2%). La variación interanual del rubro fue del 123%.
+La Comisión Nacional de Valores (CNV) fue hackeada por el grupo de ciberataque Medusa, que exige 500.000 dólares en el plazo de una semana para no filtrar documentos y bases de datos del organismo que regula los mercados financieros en Argentina.
+El hackeo permitió vulnerar más de 1,5 terabytes de documentos y bases de datos de la CNV, que amenazan con ser publicados en caso de no abonar el rescate solicitado por Medusa.
+De acuerdo con el sitio Bleeping Computer, “la operación de ransomware conocida como Medusa comenzó a cobrar fuerza en 2023, apuntando a víctimas corporativas en todo el mundo con demandas de rescate de millones de dólares”.
+
+Aunque la operación entró en funcionamiento en junio de 2021, recién durante este año está cobrando más fuerza ya que “la pandilla de ransomware aumentó su actividad y lanzó un «Blog de Medusa» que se utiliza para filtrar datos de las víctimas que se negaron a pagar un rescate”, precisó el sitio especializado.
+Asimismo, remarcaron que “Medusa ganó la atención de los medios esta semana después de que se atribuyó la responsabilidad de un ataque en el distrito de las Escuelas Públicas de Minneapolis (MPS) y compartió un video de los datos robados”.
+Fuente: E.C.
 
 URLs de las imagenes:
 
-https://www.lanacion.com.ar/resizer/v2/una-familia-de-cuatro-miembros-necesito-casi-NUKTY4D3WFHBDKNFLP67S36NKM.jpg?auth=963c752c1bb0a804a795e61308acf354330f1a584cf59181e71661f39988acec&width=309&height=206&quality=80&smart=false
 
