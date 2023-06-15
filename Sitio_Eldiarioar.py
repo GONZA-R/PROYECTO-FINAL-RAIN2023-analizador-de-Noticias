@@ -15,14 +15,13 @@ def conseguir_url(url):
             response = requests.get(url)
             soup = BeautifulSoup(response.text, 'html.parser')
             urls_noticias=[]
-            divs = soup.find_all('div', {'class': 'mainSite container economia'}) #Segun la estructura html de la pagina
+            divs = soup.find_all('div', {'class': 'content-container automatic-list col-12 col-lg-8'}) #Segun la estructura html de la pagina
             #los links a necesitar se encuentran en la class = d23_content-section
             for div in divs:
                 links = div.find_all('a')
                 for link in links:
                     href = link.get('href')
-                    if href and 'ttag' not in href:
-                        urls_noticias.append(href)
+                    urls_noticias.append(href)
                             
             return urls_noticias
 #####################################################################################################
@@ -39,26 +38,24 @@ def web_scraping(links):
         soup = BeautifulSoup(html, 'html.parser')
 
 
-        titulo = soup.find('div', class_='article-info-wrapper')
+        titulo = soup.find('div', class_='mt')
         if titulo:
                 titulo = titulo.find('h1').text.strip()
         else:
                 titulo = ""  # O cualquier valor por defecto que desees asignar si no se encuentra el elemento
 
 
+
         #obtener subtitulo de la noticia
-        resumen = soup.find('p', class_='preview newDetailTextChange')
+        resumen = soup.find('div', class_='mt')
         if resumen:
-                div_fecha = resumen.find('span', class_='detail-date')
-                if div_fecha:
-                    div_fecha.extract()  # Eliminar el div "notapropia" del árbol del documento
-                
-                resumen = resumen.text.strip()
+                resumen = resumen.find('h2').text.strip()
         else:
             resumen = ""  # O cualquier valor por defecto que desees asignar si no se encuentra el elemento
-       
 
-        div_contenido = soup.find('div', class_='note-body newDetailTextChange clearfix')
+
+
+        div_contenido = soup.find('article', class_='entry-body check-space')
 
 
         # Crear una lista para almacenar los párrafos
@@ -66,10 +63,6 @@ def web_scraping(links):
         lista_parrafos = []
 
         if div_contenido:
-
-            div_notapropia = div_contenido.find('div', class_='notapropia')
-            if div_notapropia:
-                div_notapropia.extract()  # Eliminar el div "notapropia" del árbol del documento
 
             # Buscar todos los elementos <p> dentro del div
             parrafos = div_contenido.find_all('p')
@@ -81,11 +74,13 @@ def web_scraping(links):
 
         else:
             print("No se encontró el div de contenido.")
-   
             
-        img_principales = soup.find('div', {'class': 'media nota-media'})
+
+
+        img_principales = soup.find('div', {'class': 'related-photo'})
+  
         if img_principales:
-            img_principales = img_principales.find_all('amp-img')
+            img_principales = img_principales.find_all('img')
         else:
             img_principales = None
         url_imagen_principal = [img['src'] for img in img_principales] if img_principales else []
@@ -127,25 +122,25 @@ def guardar_noticias(nombre_archivo,noticia):
 
 clear_screen()#Borra pantalla
 
-url='https://www.eltribuno.com/jujuy/seccion/economia/'
+url='https://www.eldiarioar.com/economia/'
 lista_de_noticias=conseguir_url(url)
 lista_de_noticias = list(set(lista_de_noticias))
 lista_de_noticias = [noticia for noticia in lista_de_noticias if noticia is not None]
 lista_de_noticias.sort()
 
 
-url_base = 'https://www.eltribuno.com'
+url_base = 'https://www.eldiarioar.com/'
 
 lista_url_completa=[] #la url completa de las noticias va estar formado por el url base + cada link de
 #la lista de noticias
 
-print('Accediendo a todas las paginas de https://www.eltribuno.com ...\n')
+print('Accediendo a todas las paginas de https://www.eldiarioar.com/ ...\n')
 for noticia in lista_de_noticias:
     lista_url_completa.append(url_base+noticia)
 #######################################################################
 
 
-dic_noticias=web_scraping(lista_url_completa)#Aqui se llama a la funcion que se encarga de traer los titulos,resumenes
+#dic_noticias=web_scraping(lista_url_completa)#Aqui se llama a la funcion que se encarga de traer los titulos,resumenes
 
 #contenido de los parrafos y lista de imagenes para guardar todo en un documento de texto
 

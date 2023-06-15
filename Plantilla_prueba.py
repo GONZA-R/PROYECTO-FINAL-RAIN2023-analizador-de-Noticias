@@ -10,7 +10,7 @@ def web_scraping(links):
     soup = BeautifulSoup(html, 'html.parser')
 
 
-    titulo = soup.find('div', class_='article-info-wrapper')
+    titulo = soup.find('div', class_='news-header')
     if titulo:
             titulo = titulo.find('h1').text.strip()
     else:
@@ -20,13 +20,15 @@ def web_scraping(links):
     print(titulo)
 
     #obtener subtitulo de la noticia
-    resumen = soup.find('p', class_='preview newDetailTextChange')
+    resumen = soup.find('div', class_='news-header')
     if resumen:
+            """
             div_fecha = resumen.find('span', class_='detail-date')
             if div_fecha:
                 div_fecha.extract()  # Eliminar el div "notapropia" del árbol del documento
+            """
             
-            resumen = resumen.text.strip()
+            resumen = resumen.find('h2').text.strip()
     else:
         resumen = ""  # O cualquier valor por defecto que desees asignar si no se encuentra el elemento
 
@@ -35,7 +37,8 @@ def web_scraping(links):
 
     
 
-    div_contenido = soup.find('div', class_='note-body newDetailTextChange clearfix')
+    div_contenido = soup.find('div', class_='partner-wrapper article-page__body-row')
+ 
 
     # Crear una lista para almacenar los párrafos
         
@@ -43,9 +46,11 @@ def web_scraping(links):
 
     if div_contenido:
 
-        div_notapropia = div_contenido.find('div', class_='notapropia')
-        if div_notapropia:
-            div_notapropia.extract()  # Eliminar el div "notapropia" del árbol del documento
+    
+        div_twitters = div_contenido.find_all('figure', class_='embed-container--type-twitter')
+        for div_twitter in div_twitters:
+            div_twitter.decompose()
+        
 
         # Buscar todos los elementos <p> dentro del div
         parrafos = div_contenido.find_all('p')
@@ -62,8 +67,7 @@ def web_scraping(links):
    
 
 
-    img_principales = soup.find('img', {'class': 'media-img lazyautosizes ls-is-cached lazyloaded'})
-    
+    img_principales = soup.find('picture', class_='news-image')
     
 
     if img_principales:
@@ -95,7 +99,7 @@ def web_scraping(links):
 #url = 'https://www.pagina12.com.ar/557819-sin-colectivos-en-el-interior'
 #url = 'https://www.pagina12.com.ar/557660-general-motors-produce-mas'
 #url = 'https://www.lanacion.com.ar/economia/cuanto-aumentan-las-prepagas-en-julio-2023-nid13062023/'
-url = 'https://www.eltribuno.com/jujuy/nota/2023-6-14-1-0-0-en-ledesma-continuan-con-las-negociaciones'
+url = 'https://www.eldiarioar.com/economia/alimentos-bebidas-aumentaron-inflacion-mensual-primera-vez-ano_1_10295845.html'
 web_scraping(url)
 
 

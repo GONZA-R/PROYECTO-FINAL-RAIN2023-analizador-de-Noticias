@@ -1,14 +1,25 @@
 Título: 
-¿Qué pasó con el dólar blue este jueves? Enterate aquí
+Uno más y van... Quieren sumar un nuevo impuesto a las plataformas de streaming
 
 Resumen: 
-El Banco Central volvió a comprar re3servas y lleva 18 rondas consecutivas en alza.
+En INCAA lanzó un proyecto de ley para exigirá las empresas de streaming que se adhieran al Registro Público de la Actividad Cinematográfica y Audiovisual.
 
 Contenido: 
 
-El dólar blue se negoció este jueves sin cambios, a $490 por unidad para la venta.
-En lo referido al mercado de divisas, el dólar minorista cerró a $251,44 promedio, con una suba de $1,07 centavos respecto de ayer.En tanto, en el segmento bursátil, el dólar contado con liquidación (CCL) avanza 0,7%, a $495,88; mientras que el MEP sube 1,1%, a $472,25, en el tramo final de la rueda.En el mercado mayorista, la moneda estadounidense finalizó con un aumento de 75 centavos respecto al cierre previo, en $240,25.Así, el dólar con el recargo de 30% -contemplado en el impuesto PAÍS-, marcó un promedio de $326,87 por unidad, y con el anticipo a cuenta del Impuesto a las Ganancias de 35% sobre la compra de divisas, a $414,87.En tanto, el dólar destinado al turismo en el exterior -y que cuenta con una alícuota de 45%- se ubicó en $440,02, mientras que para compras superiores a 300 dólares -y que posee un impuesto adicional de 25%-, se ubicó en $502,88.El volumen operado en el segmento de contado fue superior a US$247 millones, en el sector de futuros del Mercado Abierto Electrónico (MAE) se registraron operaciones por US$81 millones y en el mercado de futuros Rofex por US$493 millones.
-El Banco Central finalizó hoy con un saldo positivo de US$54 millones, con lo que extendió la racha de compras a 18 ruedas consecutivas, en una jornada en la que el dólar soja aportó liquidaciones por casi de US$15 millones.Esta nueva compra se debe a que todavía se siguen contabilizando ingresos de operaciones vinculadas a economías regionales y al residual de liquidación que puede existir por venta de soja.Gustavo Quintana, analista de PR Corredores de Cambio, detalló que en el mercado agroexportador se concretaron hoy operaciones por cerca de US$ 15 millones.La tercera edición del PIE III finalizó su vigencia para el complejo sojero en la rueda de ayer, aunque el período para la liquidación de divisas por parte del sector exportador se extenderá hasta el viernes para compensar la inactividad del último feriado.De esta manera, la comercialización de soja bajo este régimen cambiario especial tuvo su última jornada el 31 de mayo, tal cual como se estableció en el decreto 194/23 con el que el Ministerio de Economía puso en marcha el programa.
+En un esfuerzo por fortalecer la producción nacional, el Instituto Nacional de Cine y Artes Audiovisuales (INCAA) presentó un proyecto de ley que busca exigir a las plataformas de streaming el pago de un impuesto del 10% sobre el valor agregado (IVA).
+Los fondos recaudados serán destinados al Fondo de Fomento, cuyo propósito es promover y fortalecer la industria cinematográfica y audiovisual del país.
+Según el proyecto, un total de 26 empresas, incluyendo importantes actores del sector como Netflix, Flow, HBO, Prime, Disney +, Google, YouTube serían afectadas por esta modificación.
+Ahora, estas compañías deberán inscribirse en el Registro Público de la Actividad Cinematográfica y Audiovisual, el cual abarca a diversas ramas de la industria, desde productoras y distribuidoras hasta exhibidoras, laboratorios y estudios cinematográficos, así como también a empresas editoras y distribuidoras de videogramas grabados, titulares de videoclubes y otros locales o empresas relacionadas con la venta, alquiler o exhibición de películas.
+¿Qué es el Fondo de Fomento Cinematográfico?El Fondo de Fomento Cinematográfico, establecido en la Ley 17.741, se compondrá de un impuesto equivalente al 10% del precio básico de las localidades o boletos para espectáculos cinematográficos en todo el país.
+Adicionalmente, se aplicará otro 10% sobre el precio de venta o alquiler de videogramas grabados.
+Para garantizar el cumplimiento de esta medida, la Resolución 361/2023 emitida por el INCAA el 17 de marzo establece la inscripción automática de las 26 plataformas digitales mencionadas en el Registro Público de la Actividad Cinematográfica y Audiovisual.
+Esta iniciativa se justifica en el hecho de que estas empresas no han cumplido con su inscripción de manera voluntaria, lo que hace necesario realizar su registro de forma automática, según la nueva letra de la ley.
+En esta línea, Mikel Anaya, realizador cinematográfico de la Escuela Nacional de Experimentación y Realización Cinematográfica (ENERC), explicó: "El Registro Público de la Actividad Cinematográfica es la manera en que tiene el Instituto Nacional de Cine y Artes Visuales de controlar la cuota de pantalla, que es la cantidad de películas de origen argentino que se exhiben en las plataformas de streaming".
+Además, aclaró que el proyecto tiene dos objetivos: "Por un lado, la medición del público en las salas. Por otro lado, la cantidad de películas de producción nacional que están en pantalla, lo que permitirá controlar la cantidad de entradas financiadas por el INCAA".
+¿Cómo impacta la medida?La propuesta fue recibida de manera favorable por los trabajadores de la industria. Se espera que esta medida contribuya a aumentar los recursos del Fondo de Fomento Cinematográfico del INCAA, el cual experimentó una disminución en su financiamiento, al igual que otros organismos dedicados al fomento de la cultura y la comunicación.
+Con esta nueva regulación, el Gobierno Nacional busca asegurar la contribución de las plataformas de streaming al desarrollo y fortalecimiento de la producción audiovisual nacional.
+"Son medidas buenas desde lo teórico, pero hay que ver cómo se aplican en la praxis. Si deriva en un aumento de la producción, hoy muy deprimida, creo que podrían ser muy positivas", concluyó Anaya.
+El proyecto se encuentra actualmente en etapa de discusión y espera aprobación para su implementación.
 
 URLs de las imagenes:
 

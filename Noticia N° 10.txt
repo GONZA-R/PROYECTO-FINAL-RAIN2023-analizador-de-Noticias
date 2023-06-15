@@ -1,18 +1,19 @@
 Título: 
-Hackearon la CNV y exigen un exorbitante monto para no revelar información
+Inflación: se conoce el dato de mayo y el gobierno espera una leve moderación
 
 Resumen: 
-Los hackers establecieron una semana como plazo para no divulgar la información y base de datos vulnerada de la Comisión Nacional de Valores.
+El INDEC dará a conocer el IPC del quinto mes del año este miércoles.
 
 Contenido: 
 
-La Comisión Nacional de Valores (CNV) fue hackeada por el grupo de ciberataque Medusa, que exige 500.000 dólares en el plazo de una semana para no filtrar documentos y bases de datos del organismo que regula los mercados financieros en Argentina.
-El hackeo permitió vulnerar más de 1,5 terabytes de documentos y bases de datos de la CNV, que amenazan con ser publicados en caso de no abonar el rescate solicitado por Medusa.
-De acuerdo con el sitio Bleeping Computer, “la operación de ransomware conocida como Medusa comenzó a cobrar fuerza en 2023, apuntando a víctimas corporativas en todo el mundo con demandas de rescate de millones de dólares”.
-
-Aunque la operación entró en funcionamiento en junio de 2021, recién durante este año está cobrando más fuerza ya que “la pandilla de ransomware aumentó su actividad y lanzó un «Blog de Medusa» que se utiliza para filtrar datos de las víctimas que se negaron a pagar un rescate”, precisó el sitio especializado.
-Asimismo, remarcaron que “Medusa ganó la atención de los medios esta semana después de que se atribuyó la responsabilidad de un ataque en el distrito de las Escuelas Públicas de Minneapolis (MPS) y compartió un video de los datos robados”.
-Fuente: E.C.
+La inflación de mayo se dará a conocer esta semana en medio de previsiones cruzadas entre las consultoras privadas y el Gobierno. Mientras las estimaciones de las consultoras aparecen al alza, la expectativa del Gobierno indica una leve moderación respecto al índice de abril, que se ubicó en 8,4%.
+El Instituto Nacional de Estadística y Censos (INDEC), publicará este miércoles 14 el Índice de precios al consumidor (IPC) del quinto mes del año, que servirá para zanjar las diferencias en los pronósticos entre los relevamientos privados y la estimación del Ejecutivo.
+El Relevamiento de Expectativas del Mercado (REM), difundido por el Banco Central (BCRA), arrojó que los analistas estimaron una inflación mensual de 9% para mayo. De esta manera, la previsión se ubicó 1,6 puntos porcentuales más que en el sondeo previo y alcanzó un 148,9% anual.
+El relevamiento de precios minoristas de la consultora C&T para el Gran Buenos Aires exhibió un alza mensual de 8,7%, superando la variación de abril y la de mayo del año pasado. El IPC para GBA de Ecolatina, por su parte, alcanzó el 8,9% mensual. De esta manera, en lo que va del año los precios marcaron una suba del 42,2%, contra el 28,1% registrado en el mismo periodo de 2022.
+En tanto, el relevamiento que lleva a cabo mes a mes la Fundación Libertad y Progreso, arrojó que la inflación de mayo ascendería a 9,1%. Mientras que desde Focus Market prevén un avance del IPC de un 8,7%.
+Al igual que en abril, durante mayo se sintió el impacto de la suba en los dólares libres, junto con el incremento en distintos rubros, como prepagas, peajes, combustibles, taxis, transporte público, colegios privados, servicios de luz y gas, entre otros.
+El pasado miércoles, se difundió la inflación de mayo en la Ciudad de Buenos Aires, que alcanzó el 7,5% y mostró una leve desaceleración con respecto a abril. Así, se ubicó notoriamente por debajo de las estimaciones privadas.
+Desde el Gobierno, toman este indicador para sustentar la expectativa por un dato que refleje una merma de la inercia inflacionaria de los últimos meses. En esta dirección se expresó el ministro de Economía,Sergio Massa, precisando que “según los indicadores que maneja Programación Económica, que está a cargo de Gabriel Rubinsten, el dato del IPC estaría en línea con la inflación de la Ciudad de Buenos Aires que salió la semana pasada y que dio un poquito más abajo de abril”.
 
 URLs de las imagenes:
 

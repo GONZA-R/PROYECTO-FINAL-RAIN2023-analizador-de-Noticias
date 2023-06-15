@@ -1,25 +1,27 @@
 Título: 
-Uno más y van... Quieren sumar un nuevo impuesto a las plataformas de streaming
+Alerta en el mercado por la depreciación del yuan y el impacto en las reservas
 
 Resumen: 
-En INCAA lanzó un proyecto de ley para exigirá las empresas de streaming que se adhieran al Registro Público de la Actividad Cinematográfica y Audiovisual.
+Las fondos cayeron en casi US$ 3.000 millones desde el arranque de mayo, al pasar de US$ 35.296 millones a US$ 32.484 millones.
 
 Contenido: 
 
-En un esfuerzo por fortalecer la producción nacional, el Instituto Nacional de Cine y Artes Audiovisuales (INCAA) presentó un proyecto de ley que busca exigir a las plataformas de streaming el pago de un impuesto del 10% sobre el valor agregado (IVA).
-Los fondos recaudados serán destinados al Fondo de Fomento, cuyo propósito es promover y fortalecer la industria cinematográfica y audiovisual del país.
-Según el proyecto, un total de 26 empresas, incluyendo importantes actores del sector como Netflix, Flow, HBO, Prime, Disney +, Google, YouTube serían afectadas por esta modificación.
-Ahora, estas compañías deberán inscribirse en el Registro Público de la Actividad Cinematográfica y Audiovisual, el cual abarca a diversas ramas de la industria, desde productoras y distribuidoras hasta exhibidoras, laboratorios y estudios cinematográficos, así como también a empresas editoras y distribuidoras de videogramas grabados, titulares de videoclubes y otros locales o empresas relacionadas con la venta, alquiler o exhibición de películas.
-¿Qué es el Fondo de Fomento Cinematográfico?El Fondo de Fomento Cinematográfico, establecido en la Ley 17.741, se compondrá de un impuesto equivalente al 10% del precio básico de las localidades o boletos para espectáculos cinematográficos en todo el país.
-Adicionalmente, se aplicará otro 10% sobre el precio de venta o alquiler de videogramas grabados.
-Para garantizar el cumplimiento de esta medida, la Resolución 361/2023 emitida por el INCAA el 17 de marzo establece la inscripción automática de las 26 plataformas digitales mencionadas en el Registro Público de la Actividad Cinematográfica y Audiovisual.
-Esta iniciativa se justifica en el hecho de que estas empresas no han cumplido con su inscripción de manera voluntaria, lo que hace necesario realizar su registro de forma automática, según la nueva letra de la ley.
-En esta línea, Mikel Anaya, realizador cinematográfico de la Escuela Nacional de Experimentación y Realización Cinematográfica (ENERC), explicó: "El Registro Público de la Actividad Cinematográfica es la manera en que tiene el Instituto Nacional de Cine y Artes Visuales de controlar la cuota de pantalla, que es la cantidad de películas de origen argentino que se exhiben en las plataformas de streaming".
-Además, aclaró que el proyecto tiene dos objetivos: "Por un lado, la medición del público en las salas. Por otro lado, la cantidad de películas de producción nacional que están en pantalla, lo que permitirá controlar la cantidad de entradas financiadas por el INCAA".
-¿Cómo impacta la medida?La propuesta fue recibida de manera favorable por los trabajadores de la industria. Se espera que esta medida contribuya a aumentar los recursos del Fondo de Fomento Cinematográfico del INCAA, el cual experimentó una disminución en su financiamiento, al igual que otros organismos dedicados al fomento de la cultura y la comunicación.
-Con esta nueva regulación, el Gobierno Nacional busca asegurar la contribución de las plataformas de streaming al desarrollo y fortalecimiento de la producción audiovisual nacional.
-"Son medidas buenas desde lo teórico, pero hay que ver cómo se aplican en la praxis. Si deriva en un aumento de la producción, hoy muy deprimida, creo que podrían ser muy positivas", concluyó Anaya.
-El proyecto se encuentra actualmente en etapa de discusión y espera aprobación para su implementación.
+Las reservas del Banco Central siguen en caída no sólo por las ventas diarias de divisas sino por la devaluación que viene sufriendo el yuan, la moneda china en la que están parte de los fondos que tiene la autoridad monetaria, según cálculos de consultoras privadas.
+No obstante, existen distintas lecturas sobre el fenómeno entre los especialistas. Alguno sostienen que si los yuanes acordados con China son de "libre disponibilidad", como dijo el ministro de EconomíaSergio Massa, la depreciación del yuan afecta las reservas.
+En cambio, otros expertos sostienen que los yuanes no sirven para intervenir en el mercado y sólo se puede utilizar para importar bienes desde China, por lo que no impacta en el respaldo del BCRA. Es un tema que empezó a seguirse con más detalle por parte de los operadores tras la devaluación del yuan de las últimas semanas.
+Las reservas cayeron en casi US$ 3.000 millones desde el arranque de mayo, al pasar de US$ 35.296 millones a US$ 32.484 millones. Parte de esa pérdida se explicó por la devaluación de la moneda china. En mayo, el dólar subió de 6,91 a 7,13 yuanes, una devaluación cercana a 3%, lo que provocó una caída de reservas por US$ 500 millones, según la consultora EcoGo.
+La escasez de reservas internacionales del Banco Central llevó al Gobierno a renovar y ampliar la semana pasada el swap con China, un intercambio de monedas que permite que la Argentina pague con yuanes las importaciones y libere para otros usos los dólares que se destinaban al comercio con el gigante asiático.
+Este convenio, que se inició en 2009 cuando el presidente del Banco Central era Martín Redrado, más la dificultad para retener dólares hizo que ya el 55% de las reservas brutas -que rondan los US$ 32.500 millones- estén integradas con yuanes y más expuestas a los movimientos de esa moneda.
+El swap por 130.000 millones de yuanes, que era de 19.000 millones de dólares, según informó Economía, ya está más cerca de US$ 18.000 millones, según cálculos privados.
+No obstante, Marcelo Elizondo, especialista en Comercio Exterior, consideró que con una devaluación del yuan "las reservas pueden tener una merma en su nominalidad porque se computan en dólares. Pero, en términos prácticos, el yuan solo se utiliza para pagar importaciones. No es verdad que se puede usar para intervenir el mercado cambiario. De modo que en términos prácticos no hay mayor perjuicio (si se sigue devaluando), porque vas a seguir pagando importaciones desde China".
+Pero sí admite que el problema que puede ocurrir es que la devaluación del yuan haga subir los precios en esa moneda de los productos que compramos desde China.
+"En ese caso ya no es un problema de reservas, sino de que tengamos que pagar más las importaciones. Pero eso será un problema mundial, no solo nuestro", indicó el especialista.
+Pero aclara que para que eso suceda debería haber "una depreciación más sostenida y grande del yuan".
+"La verdad es que se ha usado menos de la mitad del primer tramo del swap, de US$ 5.000 millones. Y se concedió un segundo tramo de igual monto para después de haber usado el primer tramo, que -por alguna razón está un poco demorado", explica Elizondo.
+A una semana de que Massa anunció la renovación del swap, el Banco Central de China (PBOC) confirmó el acuerdo en un escueto comunicado.
+"Con la aprobación del Consejo de Estado, el Banco Popular de China (BPC) y el Banco Central de Argentina (BCRA) han renovado recientemente el acuerdo bilateral de swap de divisas.
+El tamaño del acuerdo es de 130.000 millones de yuanes o 4,5 billones de pesos. El acuerdo tiene un vencimiento de 3 años", indicaron, sin hacer referencia a los US$ 5.000 millones o 35 mil millones de yuanes de libre disponibilidad ni su ampliación a 70.000 millones, como informó Economía.
+Massa había asegurado que las condiciones del pacto (como cuál es la tasa o para qué se puede usar) estaban amparadas en un acuerdo de confidencialidad.
 
 URLs de las imagenes:
 
