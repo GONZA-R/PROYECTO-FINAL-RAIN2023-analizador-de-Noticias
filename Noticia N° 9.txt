@@ -1,19 +1,24 @@
 Título: 
-Hackearon la CNV y exigen un exorbitante monto para no revelar información
+Trabajadores del neumático paran las tres fábricas y marchan contra la criminalización de la protesta y en defensa de las paritarias
 
 Resumen: 
-Los hackers establecieron una semana como plazo para no divulgar la información y base de datos vulnerada de la Comisión Nacional de Valores.
+El recurso judicial de Bridgestone contra el secretario general del SUTNA por "amenazas coactivas", coincide con el comienzo de una nueva paritaria del sector.
 
 Contenido: 
 
-La Comisión Nacional de Valores (CNV) fue hackeada por el grupo de ciberataque Medusa, que exige 500.000 dólares en el plazo de una semana para no filtrar documentos y bases de datos del organismo que regula los mercados financieros en Argentina.
-El hackeo permitió vulnerar más de 1,5 terabytes de documentos y bases de datos de la CNV, que amenazan con ser publicados en caso de no abonar el rescate solicitado por Medusa.
-De acuerdo con el sitio Bleeping Computer, “la operación de ransomware conocida como Medusa comenzó a cobrar fuerza en 2023, apuntando a víctimas corporativas en todo el mundo con demandas de rescate de millones de dólares”.
-
-Aunque la operación entró en funcionamiento en junio de 2021, recién durante este año está cobrando más fuerza ya que “la pandilla de ransomware aumentó su actividad y lanzó un «Blog de Medusa» que se utiliza para filtrar datos de las víctimas que se negaron a pagar un rescate”, precisó el sitio especializado.
-Asimismo, remarcaron que “Medusa ganó la atención de los medios esta semana después de que se atribuyó la responsabilidad de un ataque en el distrito de las Escuelas Públicas de Minneapolis (MPS) y compartió un video de los datos robados”.
-Fuente: E.C.
+A partir de las 12 horas del miércoles las tres fábricas que producen neumáticos en la Argentina pararon la producción. Se trata de Fate, Pirelli y Bridgestone en las que los trabajadores abandonaron las plantas para reunirse desde las 14 horas en el Obelisco como partede las medidas de protesta en defensa de su secretario general, Alejandro Crespo.
+Allí esperan quese le sumen las organizaciones que integran la Unidad Piqueteraasí como delegaciones dedecenas de sindicatos que se pronunciaron masivamente contra la criminalización de la protesta en general y, en particular, en repudio a la causa penal que la multinacional Bridgestonesustanció contra el secretario general del SUTNA, Alejandro Crespo por “amenazas coactivas”.
+La presentación judicial se produce como respuesta alas medidas gremiales adoptadas por ese sindicato en la planta de Bridgestone en Lavallol a partir de la denuncia por condiciones de trabajo insalubres.
+Las mismas fueron constatadas por la inspección realizada por la cartera laboral de la provincia de Buenos Aires y confirmadas por el ministerio de Trabajo de la Nación y la Superintendencia de Riesgos del Trabajo (SRT). Antelas irregularidades detectadas, los organismos intervinientes recomiendan una modalidad de trabajo que implique 15 minutos de actividad y 45 de descansopara reducir la exposición a las altas temperaturas.La empresa, sin embargo, en lugar de corregir las irregularidades y acatar las recomendaciones oficiales, optó por despedir trabajadores involucrados en las denuncias y avanzar judicialmente contra el titular del SUTNA.
+La ofensiva judicial, además, se da en el marco delcomienzo de las negociaciones paritarias para el período 2023-2024. Para el sindicato se trata de una provocación que busca condicionar la negociación salarial.
+El año pasado los trabajadores del sector habían conseguido un inédito acuerdo de indexación del salario por inflación y una suba de un 10% adicional para garantizar la mejora del poder adquisitivo del sector.El sindicato estima que el incremento de punta a punta rozará el 130%, el más alto de los que se conocen.
+Para llegar a ese acuerdo, la entidad gremial se vio obligada a desplegar un conflicto que duró casi seis meses yconcluyó con una huelga general que mantuvo paralizada la industria y forzó a las patronales a llegar a un entendimiento. El mismo, además, implicó un bono de $100 mil para todos los trabajadores en concepto de compensación por las horas trabajadas los fines de semana. Esto por encima del bono que tradicionalmente perciben a fin de año y la participación en las ganancias de las empresas.
+A fin del mes de junio vence el acuerdo vigente y, por eso,este jueves está agendada la primera reunión paritaria en el ministerio de Trabajo. En el marco de medidas de fuerza en las tres plantas por una causa impulsada por una de las empresas, una de las claves serála actitud que asuman el resto de las empresas, Fate y Pirelli, ante la ofensiva judicial contra Alejandro Crespo.
+La movilización de hoyfue precedida por asambleas en las plantas en las que los trabajadores decidieron encarar la lucha por las paritarias en conjunto con la pelea contra la criminalización de la protesta.
+El repudio a la acción judicial es acompañado por decenas de sindicatos que incluyen al secretario general de la CGT y titular del sindicato Camionero Pablo Moyano, la CTA Autónoma, la CTA de los Trabajadores, el FreSiMoNA, Agd-UBA, Fatpren y SiPreBA, La Asociación Bancaria, la UATRE, el SUPA, la Federación Aceitera y un largo etcétera.
 
 URLs de las imagenes:
 
+https://www.tiempoar.com.ar/wp-content/uploads/2023/06/SUTNA-facebooksutna.nacional-767x511.jpg
+https://www.tiempoar.com.ar/wp-content/uploads/2023/06/SUTNA-facebooksutna.nacional-400x267.jpg
 

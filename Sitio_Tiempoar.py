@@ -15,13 +15,13 @@ def conseguir_url(url):
             response = requests.get(url)
             soup = BeautifulSoup(response.text, 'html.parser')
             urls_noticias=[]
-            divs = soup.find_all('div', {'class': 'list_auto'}) #Segun la estructura html de la pagina
-            #los links a necesitar se encuentran en la class = d23_content-section
+            divs = soup.find_all('div',class_= 'col-12 col-md-8 p-0') #Segun la estructura html de la pagina
             for div in divs:
                 links = div.find_all('a')
                 for link in links:
                     href = link.get('href')
-                    urls_noticias.append(href)
+                    if href and href.startswith('https://www.tiempoar.com.ar/economia'):
+                        urls_noticias.append(href)
                             
             return urls_noticias
 #####################################################################################################
@@ -38,7 +38,7 @@ def web_scraping(links):
         soup = BeautifulSoup(html, 'html.parser')
 
 
-        titulo = soup.find('div', class_='mt')
+        titulo = soup.find('div', class_='pl-lg-5')
         if titulo:
                 titulo = titulo.find('h1').text.strip()
         else:
@@ -46,16 +46,19 @@ def web_scraping(links):
 
 
 
+
+
         #obtener subtitulo de la noticia
-        resumen = soup.find('div', class_='mt')
+        resumen = soup.find('div', class_='pl-lg-5')
         if resumen:
-                resumen = resumen.find('h2').text.strip()
+                    
+                resumen = resumen.find('h3').text.strip()
         else:
             resumen = ""  # O cualquier valor por defecto que desees asignar si no se encuentra el elemento
 
 
 
-        div_contenido = soup.find('article', class_='entry-body check-space')
+        div_contenido = soup.find('div', class_='art-column-w-lpadding')
 
 
         # Crear una lista para almacenar los párrafos
@@ -77,7 +80,7 @@ def web_scraping(links):
             
 
 
-        img_principales = soup.find('div', {'class': 'related-photo'})
+        img_principales = soup.find('div', class_='img-container mt-3')
   
         if img_principales:
             img_principales = img_principales.find_all('img')
@@ -122,22 +125,22 @@ def guardar_noticias(nombre_archivo,noticia):
 
 clear_screen()#Borra pantalla
 
-url='https://www.clarin.com/economia/'
+url='https://www.tiempoar.com.ar/economia/'
 lista_de_noticias=conseguir_url(url)
 lista_de_noticias = list(set(lista_de_noticias))
 lista_de_noticias = [noticia for noticia in lista_de_noticias if noticia is not None]
 lista_de_noticias.sort()
 
 
-url_base = 'https://www.clarin.com'
+url_base = 'https://www.tiempoar.com.ar'
+
 lista_url_completa=[] #la url completa de las noticias va estar formado por el url base + cada link de
 #la lista de noticias
 
-print('Accediendo a todas las paginas de https://www.clarin.com ...\n')
+print('Accediendo a todas las paginas de https://www.tiempoar.com.ar ...\n')
 for noticia in lista_de_noticias:
-    lista_url_completa.append(url_base+noticia)
+    lista_url_completa.append(noticia)
 #######################################################################
-
 
 dic_noticias=web_scraping(lista_url_completa)#Aqui se llama a la funcion que se encarga de traer los titulos,resumenes
 

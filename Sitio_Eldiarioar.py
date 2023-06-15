@@ -21,7 +21,8 @@ def conseguir_url(url):
                 links = div.find_all('a')
                 for link in links:
                     href = link.get('href')
-                    urls_noticias.append(href)
+                    if href and 'autores' not in href:
+                        urls_noticias.append(href)
                             
             return urls_noticias
 #####################################################################################################
@@ -38,7 +39,7 @@ def web_scraping(links):
         soup = BeautifulSoup(html, 'html.parser')
 
 
-        titulo = soup.find('div', class_='mt')
+        titulo = soup.find('div', class_='news-header')
         if titulo:
                 titulo = titulo.find('h1').text.strip()
         else:
@@ -47,7 +48,7 @@ def web_scraping(links):
 
 
         #obtener subtitulo de la noticia
-        resumen = soup.find('div', class_='mt')
+        resumen = soup.find('div', class_='news-header')
         if resumen:
                 resumen = resumen.find('h2').text.strip()
         else:
@@ -55,7 +56,7 @@ def web_scraping(links):
 
 
 
-        div_contenido = soup.find('article', class_='entry-body check-space')
+        div_contenido = soup.find('div', class_='partner-wrapper article-page__body-row')
 
 
         # Crear una lista para almacenar los párrafos
@@ -63,6 +64,10 @@ def web_scraping(links):
         lista_parrafos = []
 
         if div_contenido:
+
+            div_twitters = div_contenido.find_all('figure', class_='embed-container--type-twitter')
+            for div_twitter in div_twitters:
+                div_twitter.decompose()
 
             # Buscar todos los elementos <p> dentro del div
             parrafos = div_contenido.find_all('p')
@@ -77,7 +82,7 @@ def web_scraping(links):
             
 
 
-        img_principales = soup.find('div', {'class': 'related-photo'})
+        img_principales = soup.find('picture', class_='news-image')
   
         if img_principales:
             img_principales = img_principales.find_all('img')
@@ -136,11 +141,11 @@ lista_url_completa=[] #la url completa de las noticias va estar formado por el u
 
 print('Accediendo a todas las paginas de https://www.eldiarioar.com/ ...\n')
 for noticia in lista_de_noticias:
-    lista_url_completa.append(url_base+noticia)
+    lista_url_completa.append(noticia)
 #######################################################################
 
 
-#dic_noticias=web_scraping(lista_url_completa)#Aqui se llama a la funcion que se encarga de traer los titulos,resumenes
+dic_noticias=web_scraping(lista_url_completa)#Aqui se llama a la funcion que se encarga de traer los titulos,resumenes
 
 #contenido de los parrafos y lista de imagenes para guardar todo en un documento de texto
 
