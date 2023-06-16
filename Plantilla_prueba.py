@@ -10,7 +10,7 @@ def web_scraping(links):
     soup = BeautifulSoup(html, 'html.parser')
 
 
-    titulo = soup.find('div', class_='pl-lg-5')
+    titulo = soup.find('div', class_='head-content mb-4')
     if titulo:
             titulo = titulo.find('h1').text.strip()
     else:
@@ -20,7 +20,7 @@ def web_scraping(links):
     print(titulo)
 
     #obtener subtitulo de la noticia
-    resumen = soup.find('div', class_='pl-lg-5')
+    resumen = soup.find('div', class_='head-content mb-4')
     if resumen:
             """
             div_fecha = resumen.find('span', class_='detail-date')
@@ -28,7 +28,7 @@ def web_scraping(links):
                 div_fecha.extract()  # Eliminar el div "notapropia" del árbol del documento
             """
             
-            resumen = resumen.find('h3').text.strip()
+            resumen = resumen.find('p').text.strip()
     else:
         resumen = ""  # O cualquier valor por defecto que desees asignar si no se encuentra el elemento
 
@@ -37,8 +37,8 @@ def web_scraping(links):
 
     
 
-    div_contenido = soup.find('div', class_='art-column-w-lpadding')
- 
+    div_contenido = soup.find('div', class_='paragraph')
+
 
     # Crear una lista para almacenar los párrafos
         
@@ -54,7 +54,8 @@ def web_scraping(links):
         
 
         # Buscar todos los elementos <p> dentro del div
-        parrafos = div_contenido.find_all('p')
+        #parrafos = div_contenido.find_all('p')
+        parrafos=list(div_contenido)
 
         # Recorrer los elementos <p> y obtener el texto de cada uno
         for parrafo in parrafos:
@@ -68,7 +69,7 @@ def web_scraping(links):
    
 
 
-    img_principales = soup.find('div', class_='img-container mt-3')
+    img_principales = soup.find('div', class_='paragraph')
     
 
     if img_principales:
@@ -100,7 +101,7 @@ def web_scraping(links):
 #url = 'https://www.pagina12.com.ar/557819-sin-colectivos-en-el-interior'
 #url = 'https://www.pagina12.com.ar/557660-general-motors-produce-mas'
 #url = 'https://www.lanacion.com.ar/economia/cuanto-aumentan-las-prepagas-en-julio-2023-nid13062023/'
-url = 'https://www.tiempoar.com.ar/massa-se-reunio-con-el-ceo-de-aceitera-general-deheza-quien-le-ratifico-inversiones-por-54-millones-de-dolares/'
+url = 'https://www.telam.com.ar/notas/202306/631265-inflacion-precios-indec-mayo.html'
 web_scraping(url)
 
 
