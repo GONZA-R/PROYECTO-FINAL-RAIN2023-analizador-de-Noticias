@@ -10,7 +10,7 @@ def web_scraping(links):
     soup = BeautifulSoup(html, 'html.parser')
 
 
-    titulo = soup.find('div', class_='head-content mb-4')
+    titulo = soup.find('div', class_='col-12 col-md-8 detail-news__main-column')
     if titulo:
             titulo = titulo.find('h1').text.strip()
     else:
@@ -20,7 +20,7 @@ def web_scraping(links):
     print(titulo)
 
     #obtener subtitulo de la noticia
-    resumen = soup.find('div', class_='head-content mb-4')
+    resumen = soup.find('div', class_='col-12 col-md-8 detail-news__main-column')
     if resumen:
             """
             div_fecha = resumen.find('span', class_='detail-date')
@@ -28,7 +28,7 @@ def web_scraping(links):
                 div_fecha.extract()  # Eliminar el div "notapropia" del árbol del documento
             """
             
-            resumen = resumen.find('p').text.strip()
+            resumen = resumen.find('h2').text.strip()
     else:
         resumen = ""  # O cualquier valor por defecto que desees asignar si no se encuentra el elemento
 
@@ -37,7 +37,7 @@ def web_scraping(links):
 
     
 
-    div_contenido = soup.find('div', class_='paragraph')
+    div_contenido = soup.find('div', class_='col-12 col-md-8 detail-news__main-column')
 
 
     # Crear una lista para almacenar los párrafos
@@ -54,8 +54,8 @@ def web_scraping(links):
         
 
         # Buscar todos los elementos <p> dentro del div
-        #parrafos = div_contenido.find_all('p')
-        parrafos=list(div_contenido)
+        parrafos = div_contenido.find_all('p')
+        #parrafos=list(div_contenido)
 
         # Recorrer los elementos <p> y obtener el texto de cada uno
         for parrafo in parrafos:
@@ -69,7 +69,7 @@ def web_scraping(links):
    
 
 
-    img_principales = soup.find('div', class_='paragraph')
+    img_principales = soup.find('div', class_='detail-highlighted-multimedia content-protected-false')
     
 
     if img_principales:
@@ -101,7 +101,7 @@ def web_scraping(links):
 #url = 'https://www.pagina12.com.ar/557819-sin-colectivos-en-el-interior'
 #url = 'https://www.pagina12.com.ar/557660-general-motors-produce-mas'
 #url = 'https://www.lanacion.com.ar/economia/cuanto-aumentan-las-prepagas-en-julio-2023-nid13062023/'
-url = 'https://www.telam.com.ar/notas/202306/631265-inflacion-precios-indec-mayo.html'
+url = 'https://www.ambito.com/economia/mercosur-ue-las-exigencias-medioambientales-que-complican-el-acuerdo-n5746213'
 web_scraping(url)
 
 

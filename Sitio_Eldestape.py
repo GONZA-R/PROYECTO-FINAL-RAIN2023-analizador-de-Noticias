@@ -1,13 +1,5 @@
-############################
-#Borrar pantalla
-import os
-def clear_screen():
-    os.system('clear' if os.name == 'posix' else 'cls')
-############################
-
+import funciones
 #####################################################################################################
-# Funciones punto 2
-
 
 import requests
 from bs4 import BeautifulSoup
@@ -21,8 +13,8 @@ def conseguir_url(url):
                 links = div.find_all('a')
                 for link in links:
                     href = link.get('href')
-                    #if href and 'autos' not in href and 'campo' not in href and 'economia/' in href and not href.startswith('https://www.lanacion.com.ar/economia'):
                     urls_noticias.append(href)
+                    
                             
             return urls_noticias
 #####################################################################################################
@@ -38,100 +30,69 @@ def web_scraping(links):
         html = response.text
         soup = BeautifulSoup(html, 'html.parser')
 
-
-        titulo = soup.find('div', class_='item is-12 lbp_item')
-
-
+        titulo = soup.find('h1', class_='titulo')
         if titulo:
-            titulo = titulo.find('h1').text.strip()
-        else:
-            titulo = ""  # O cualquier valor por defecto que desees asignar si no se encuentra el elemento
-
-
+            titulo = titulo.text.strip()
+        
         #obtener subtitulo de la noticia
         resumen = soup.find('h2', class_='intro')
-
-
         if resumen:
             resumen = resumen.text.strip()
         else:
             resumen = ""  # O cualquier valor por defecto que desees asignar si no se encuentra el elemento
 
-
-        div_contenido = soup.find('div', class_='cuerpo lbp-cuerpo')
-
+        div_contenido = soup.find('div', class_='nota_contenido')
 
         # Crear una lista para almacenar los párrafos
             
         lista_parrafos = []
 
         if div_contenido:
+
+            div_no = div_contenido.find_all('div', class_='cont-boton')
+            for div in div_no:
+                div.decompose()
+
+            div_no = div_contenido.find_all('div', class_='link_nota_propia')
+            for div in div_no:
+                div.decompose()
+
             # Buscar todos los elementos <p> dentro del div
             parrafos = div_contenido.find_all('p')
 
-            
-
             # Recorrer los elementos <p> y obtener el texto de cada uno
             for parrafo in parrafos:
-                if 'Este contenido se hizo gracias al apoyo de la comunidad de El Destape. Sumate. Sigamos haciendo historia.' in parrafo.get_text(strip=True):
-                    continue
-                if 'SUSCRIBITE A EL DESTAPE' in parrafo.get_text(strip=True):
-                    continue
-                texto = parrafo.get_text(strip=True)
+
+                texto = parrafo.get_text()
                 lista_parrafos.append(texto)
             pass
 
         else:
             print("No se encontró el div de contenido.")
             
-        img_principales = soup.find('div', {'class': 'media nota-media'})
-        if img_principales:
-            img_principales = img_principales.find_all('amp-img')
-        else:
-            img_principales = None
-        url_imagen_principal = [img['src'] for img in img_principales] if img_principales else []
-
         
         # Diccionario con cada elemento de la pagina a consultar
-        noticias.append({'titulo': titulo,'resumen': resumen, 'contenido': lista_parrafos,'url_imagenes':url_imagen_principal}) 
-        i=0
-            # guardar archivo de texto de las 10 primeras noticias
-        for noticia in noticias:
-            i=i+1
-            nombre_noticia='Noticia N° '+str(i)+'.txt'
-            guardar_noticias(nombre_noticia,noticia)
-            if i>=10:
-                break
-            else:
-                pass
+        noticias.append({'titulo': titulo,'resumen': resumen, 'contenido': lista_parrafos})
+
     return noticias
 
 
 
 #####################################################################################################
-def guardar_noticias(nombre_archivo,noticia):
-    with open(nombre_archivo, 'w',encoding='utf-8') as file:
-        file.write('Título: \n' + noticia['titulo'] + '\n\n')
-        file.write('Resumen: \n' + noticia['resumen'] + '\n\n')
-        
-        file.write('Contenido: \n\n')
-        
-        for parrafo in noticia['contenido']:
-            file.write(parrafo + '\n')
-        
-        file.write('\nURLs de las imagenes:\n\n')
-        for url in noticia['url_imagenes']:
-            file.write(url + '\n')
-        file.write('\n')
-#######################################################################
 
 
-clear_screen()#Borra pantalla
+funciones.clear_screen()#Borra pantalla
 
-url='https://www.eldestapeweb.com/seccion/economia/'
+textobusq=input('Ingrese la seccion de noticias: ')#ingresar economia,politica,sociedad o algunos de la barra 
+
+
+url='https://www.eldestapeweb.com/seccion/'+textobusq+'/'
 lista_de_noticias=conseguir_url(url)
 lista_de_noticias = list(set(lista_de_noticias))
 lista_de_noticias.sort()
+
+
+
 
 
 url_base = 'https://www.eldestapeweb.com'
@@ -142,18 +103,82 @@ lista_url_completa=[] #la url completa de las noticias va estar formado por el u
 print('Accediendo a todas las paginas de https://www.eldestapeweb.com ...\n')
 for noticia in lista_de_noticias:
     lista_url_completa.append(url_base+noticia)
+
+
+lista_url_completa = [url for url in lista_url_completa if url.startswith('https://www.eldestapeweb.com/'+textobusq)]
+
+print(lista_url_completa)
 #######################################################################
 
 
-dic_noticias=web_scraping(lista_url_completa)#Aqui se llama a la funcion que se encarga de traer los titulos,resumenes
-
-#contenido de los parrafos y lista de imagenes para guardar todo en un documento de texto
-
-with open('Lista de URLs.txt', 'w') as file:#Va a guardar la lista en un archivo de texto para 
-    #visualizar mejor con que links se va a trabajar
-    file.write('\n'.join(lista_url_completa))
+list_dic_noticias=web_scraping(lista_url_completa)#Aqui se llama a la funcion que se encarga de traer los titulos,resumenes
 
 
+import requests
+from bs4 import BeautifulSoup
+
+def web_scrapping_div(links):
+    listdiv=[]
+    
+    url = links
+    response = requests.get(url)
+    html = response.text
+        
+    # O cualquier valor por defecto que desees asignar si no se encuentra el elemento
+
+    soup = BeautifulSoup(html, 'html.parser')
+
+    ul_elements = soup.find('ul',class_='menu menu__mobile')
+
+    for ul in ul_elements:
+        a_elements = ul.find_all('a')
+        for a in a_elements:
+            texto = a.text.strip()
+            listdiv.append(texto)
+
+    ul_elements = soup.find('ul',class_='menu2')
+
+    for ul in ul_elements:
+        a_elements = ul.find_all('a')
+        for a in a_elements:
+            texto = a.text.strip()
+            listdiv.append(texto)
+
+
+    return listdiv
+
+
+
+for noticia in list_dic_noticias:
+    resumen_actual = noticia['contenido']
+    nuevo_resumen = ' '.join(resumen_actual)
+    nuevo_resumen = funciones.eliminar_caracteres(nuevo_resumen)
+    nuevo_resumen = nuevo_resumen.split()
+    nuevo_resumen = funciones.eliminar_numeros_lista(nuevo_resumen)
+    nuevo_resumen = [elemento.lower() for elemento in nuevo_resumen]
+    nuevo_resumen = list(filter(None, nuevo_resumen))
+    nuevo_resumen = funciones.eliminar_stopwords(nuevo_resumen)
+    nuevo_resumen = funciones.eliminar_caracteres_unicos(nuevo_resumen)
+    noticia['contenido'] = nuevo_resumen
+
+
+elemento=list_dic_noticias[0]
+print('\n'+elemento['titulo'])
+print('\n')
+print(elemento['contenido'])
+
+listdiv=web_scrapping_div(url_base)
+
+# Elementos a eliminar
+elementos_eliminar = ['#ATR', 'Secciones editoriales', 'Videos', 'Radio', 'Programación']
+
+# Eliminar los elementos de la lista
+for elemento in elementos_eliminar:
+    if elemento in listdiv:
+        listdiv.remove(elemento)
+
+
+print(listdiv)
 
 print("\nSe genero un archivo de texto...\n")
 

@@ -20,7 +20,7 @@ def conseguir_url(url):
                 links = div.find_all('a')
                 for link in links:
                     href = link.get('href')
-                    if href and  'economia' in href:
+                    if href and 'economia' in href:
                         urls_noticias.append(href)
                             
             return urls_noticias
@@ -79,49 +79,15 @@ def web_scraping(links):
             print("No se encontró el div de contenido.")
             
 
-
-        img_principales = soup.find('picture', class_='responsive-image')
-  
-        if img_principales:
-            img_principales = img_principales.find_all('img')
-        else:
-            img_principales = None
-        url_imagen_principal = [img['src'] for img in img_principales] if img_principales else []
-
         
         # Diccionario con cada elemento de la pagina a consultar
-        noticias.append({'titulo': titulo,'resumen': resumen, 'contenido': lista_parrafos,'url_imagenes':url_imagen_principal}) 
-        i=0
-            # guardar archivo de texto de las 10 primeras noticias
-        for noticia in noticias:
-            i=i+1
-            nombre_noticia='Noticia N° '+str(i)+'.txt'
-            guardar_noticias(nombre_noticia,noticia)
-            if i>=10:
-                break
-            else:
-                pass
+        noticias.append({'titulo': titulo,'resumen': resumen, 'contenido': lista_parrafos}) 
+        
     return noticias
 
 
 
 #####################################################################################################
-def guardar_noticias(nombre_archivo,noticia):
-    with open(nombre_archivo, 'w',encoding='utf-8') as file:
-        file.write('Título: \n' + noticia['titulo'] + '\n\n')
-        file.write('Resumen: \n' + noticia['resumen'] + '\n\n')
-        
-        file.write('Contenido: \n\n')
-        
-        for parrafo in noticia['contenido']:
-            file.write(parrafo + '\n')
-        
-        file.write('\nURLs de las imagenes:\n\n')
-        for url in noticia['url_imagenes']:
-            file.write(url + '\n')
-        file.write('\n')
-#######################################################################
-
 
 clear_screen()#Borra pantalla
 
@@ -143,13 +109,10 @@ for noticia in lista_de_noticias:
 
 dic_noticias=web_scraping(lista_url_completa)#Aqui se llama a la funcion que se encarga de traer los titulos,resumenes
 
-#contenido de los parrafos y lista de imagenes para guardar todo en un documento de texto
-
-with open('Lista de URLs.txt', 'w') as file:#Va a guardar la lista en un archivo de texto para 
-    #visualizar mejor con que links se va a trabajar
-    file.write('\n'.join(lista_url_completa))
 
 
+
+#menu-block-title
 
 print("\nSe genero un archivo de texto...\n")
 
