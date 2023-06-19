@@ -1,14 +1,5 @@
-############################
-#Borrar pantalla
-import os
-def clear_screen():
-    os.system('clear' if os.name == 'posix' else 'cls')
-############################
+import funciones
 
-#####################################################################################################
-# Funciones punto 2
-
-#https://www.pagina12.com.ar/
 
 import requests
 from bs4 import BeautifulSoup
@@ -17,13 +8,10 @@ def conseguir_url(url):
             soup = BeautifulSoup(response.text, 'html.parser')
             urls_noticias=[]
             divs = soup.find_all('div', {'class': 'article-item__content'}) #Segun la estructura html de la pagina
-            #los links a necesitar se encuentran en la class = d23_content-section
             for div in divs:
                 links = div.find_all('a')
                 for link in links:
                     href = link.get('href')
-                    #if href and 'autor' not in href and 'infobae' not in href:
-                        #if href and 'economia/2023' in href:
                     urls_noticias.append(href)
             return urls_noticias
 #####################################################################################################
@@ -48,8 +36,6 @@ def web_scraping(links):
         resumen = resumen.find('h2').text.strip()
 
 
-        # Buscar el div con la clase "article-main-content article-text"
-        #div_contenido = soup.find('div', class_='article-main-content article-text')
         div_contenido = soup.find('div', class_=['article-main-content article-text','article-main-content article-text no-main-image'])
         lista_parrafos = []
 
@@ -62,58 +48,28 @@ def web_scraping(links):
 
             # Recorrer los elementos <p> y obtener el texto de cada uno
             for parrafo in parrafos:
-                texto = parrafo.get_text(strip=True)
+                texto = parrafo.get_text()
                 lista_parrafos.append(texto)
             
             pass
         else:
             print("No se encontró el div de contenido.")
         
-        img_principales = soup.find('div', {'class': 'section-2-col article-main-image'})
-        if img_principales:
-            img_principales = img_principales.find_all('img')
-        else:
-            img_principales = None
-        url_imagen_principal = [img['src'] for img in img_principales] if img_principales else []
-
-        
         # Diccionario con cada elemento de la pagina a consultar
-        noticias.append({'titulo': titulo,'resumen': resumen, 'contenido': lista_parrafos,'url_imagenes':url_imagen_principal}) 
-        i=0
-            # guardar archivo de texto de las 10 primeras noticias
-        for noticia in noticias:
-            i=i+1
-            nombre_noticia='Noticia N° '+str(i)+'.txt'
-            guardar_noticias(nombre_noticia,noticia)
-            if i>=10:
-                break
-            else:
-                pass
+        noticias.append({'titulo': titulo,'resumen': resumen, 'contenido': lista_parrafos}) 
+        
     return noticias
 
 
 
 #####################################################################################################
-def guardar_noticias(nombre_archivo,noticia):
-    with open(nombre_archivo, 'w',encoding='utf-8') as file:
-        file.write('Título: \n' + noticia['titulo'] + '\n\n')
-        file.write('Resumen: \n' + noticia['resumen'] + '\n\n')
-        
-        file.write('Contenido: \n\n')
-        
-        for parrafo in noticia['contenido']:
-            file.write(parrafo + '\n')
-        
-        file.write('\nURLs de las imagenes:\n\n')
-        for url in noticia['url_imagenes']:
-            file.write(url + '\n')
-        file.write('\n')
-#######################################################################
+
+funciones.clear_screen()#Borra pantalla
+
+textobusq=input('Ingrese el la seccion de noticias: ')#ingresar economia,politica,sociedad o algunos de la barra menos ultimas noticias
 
 
-clear_screen()#Borra pantalla
-
-url='https://www.pagina12.com.ar/secciones/economia'
+url='https://www.pagina12.com.ar/secciones/'+textobusq
 lista_de_noticias=conseguir_url(url)
 lista_de_noticias = list(set(lista_de_noticias))
 lista_de_noticias.sort()
@@ -129,13 +85,68 @@ for noticia in lista_de_noticias:
     lista_url_completa.append(url_base+noticia)
 #######################################################################
 
-
-dic_noticias=web_scraping(lista_url_completa)#Aqui se llama a la funcion que se encarga de traer los titulos,resumenes
-#contenido de los parrafos y lista de imagenes para guardar todo en un documento de texto
-with open('Lista de URLs.txt', 'w') as file:#Va a guardar la lista en un archivo de texto para 
-    #visualizar mejor con que links se va a trabajar
-    file.write('\n'.join(lista_url_completa))
+print(lista_url_completa)
 
 
-print("\nSe genero un archivo de texto...\n")
+list_dic_noticias=web_scraping(lista_url_completa)#Aqui se llama a la funcion que se encarga de traer los titulos,resumenes
 
+for noticia in list_dic_noticias:
+    resumen_actual = noticia['contenido']
+    nuevo_resumen = ' '.join(resumen_actual)
+
+    nuevo_resumen = funciones.eliminar_caracteres(nuevo_resumen)
+    nuevo_resumen = nuevo_resumen.split()
+    nuevo_resumen = funciones.eliminar_numeros_lista(nuevo_resumen)
+    nuevo_resumen = [elemento.lower() for elemento in nuevo_resumen]
+    nuevo_resumen = list(filter(None, nuevo_resumen))
+    nuevo_resumen = funciones.eliminar_stopwords(nuevo_resumen)
+    nuevo_resumen = funciones.eliminar_caracteres_unicos(nuevo_resumen)
+    noticia['contenido'] = nuevo_resumen
+
+
+
+
+import requests
+from bs4 import BeautifulSoup
+
+def web_scrapping_div(links):
+    listdiv=[]
+    
+    url = links
+    response = requests.get(url)
+    html = response.text
+        
+    # O cualquier valor por defecto que desees asignar si no se encuentra el elemento
+
+    soup = BeautifulSoup(html,'html.parser')
+
+        # Encontrar el div con la clase "p12-dropdown-column"
+    div_dropdown = soup.find('div', class_='p12-dropdown-column')
+
+    if div_dropdown:
+        # Encontrar todos los elementos <a> dentro del div
+        a_tags = div_dropdown.find_all('a')
+
+        # Extraer los textos de los elementos <a>
+        listdiv = [tag.text for tag in a_tags]
+        #listdiv.append(textos)
+    return listdiv
+
+
+
+elemento=list_dic_noticias[0]
+print('\n'+elemento['titulo'])
+print('\n')
+print(elemento['contenido'])
+
+listdiv=web_scrapping_div(url_base)
+
+elementos_eliminar=['Buenos Aires12', 'Líbero', 'Buenos Aires12', 'Rosario12', 'Salta12', 'Catamarca12', 'La Rioja12', 'Negrx', 'Audiovisuales',
+  'Plástica', 'Soci@s', 'La ventana', 'Contratapa', 'Diálogos', 'Recordatorios', 'Edición impresa']
+
+# Eliminar los elementos de la lista
+for elemento in elementos_eliminar:
+    if elemento in listdiv:
+        listdiv.remove(elemento)
+
+print(listdiv)

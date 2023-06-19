@@ -180,5 +180,4 @@ for elemento in elementos_eliminar:
 
 print(listdiv)
 
-print("\nSe genero un archivo de texto...\n")
 

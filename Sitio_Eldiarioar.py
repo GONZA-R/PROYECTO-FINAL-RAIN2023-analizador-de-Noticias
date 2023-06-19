@@ -151,4 +151,5 @@ listdiv = [
     'Mejor vivir'
 ]
 
+
 print(listdiv)

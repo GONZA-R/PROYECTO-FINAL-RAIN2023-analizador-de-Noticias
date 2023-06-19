@@ -160,6 +160,7 @@ print('\n'+elemento['titulo'])
 print('\n')
 print(elemento['contenido'])
 
+
 listdiv=web_scrapping_div(url_base)
 listdiv.remove('Últimas Noticias')
 print(listdiv)

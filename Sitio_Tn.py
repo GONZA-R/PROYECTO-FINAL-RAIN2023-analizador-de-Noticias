@@ -1,17 +1,11 @@
 ############################
-#Borrar pantalla
-import os
-def clear_screen():
-    os.system('clear' if os.name == 'posix' else 'cls')
-############################
+import funciones
 
-#####################################################################################################
-# Funciones punto 2
 
 
 import requests
 from bs4 import BeautifulSoup
-def conseguir_url(url):
+def conseguir_url(url,textobusq):
             response = requests.get(url)
             soup = BeautifulSoup(response.text, 'html.parser')
             urls_noticias=[]
@@ -20,7 +14,7 @@ def conseguir_url(url):
                 links = div.find_all('a')
                 for link in links:
                     href = link.get('href')
-                    if href and 'economia' in href:
+                    if href and textobusq in href:
                         urls_noticias.append(href)
                             
             return urls_noticias
@@ -45,9 +39,6 @@ def web_scraping(links):
                 titulo = ""  # O cualquier valor por defecto que desees asignar si no se encuentra el elemento
 
 
-
-
-
         #obtener subtitulo de la noticia
         resumen = soup.find('div', class_='article__headline-byline-container')
         if resumen:
@@ -55,8 +46,6 @@ def web_scraping(links):
                 resumen = resumen.find('h2').text.strip()
         else:
             resumen = ""  # O cualquier valor por defecto que desees asignar si no se encuentra el elemento
-
-
 
         div_contenido = soup.find('div', class_='default-article-color article__body article__article')
 
@@ -72,7 +61,7 @@ def web_scraping(links):
 
             # Recorrer los elementos <p> y obtener el texto de cada uno
             for parrafo in parrafos:
-                texto = parrafo.get_text(strip=True)
+                texto = parrafo.get_text()
                 lista_parrafos.append(texto)
 
         else:
@@ -89,10 +78,13 @@ def web_scraping(links):
 
 #####################################################################################################
 
-clear_screen()#Borra pantalla
+funciones.clear_screen()#Borra pantalla
 
-url='https://tn.com.ar/economia/'
-lista_de_noticias=conseguir_url(url)
+textobusq=input('Ingrese el la seccion de noticias: ')#ingresar economia,politica,sociedad o algunos de la barra menos ultimas noticias
+
+
+url='https://tn.com.ar/'+textobusq+'/'
+lista_de_noticias=conseguir_url(url,textobusq)
 lista_de_noticias = list(set(lista_de_noticias))
 lista_de_noticias = [noticia for noticia in lista_de_noticias if noticia is not None]
 lista_de_noticias.sort()
@@ -105,14 +97,44 @@ lista_url_completa=[] #la url completa de las noticias va estar formado por el u
 print('Accediendo a todas las paginas de https://tn.com.ar ...\n')
 for noticia in lista_de_noticias:
     lista_url_completa.append(url_base+noticia)
+
+
+patron = 'https://tn.com.ar/'+textobusq+'/'
+
+lista_url_completa= [url for url in lista_url_completa if url.startswith(patron)]
+print(lista_url_completa)
 #######################################################################
 
-dic_noticias=web_scraping(lista_url_completa)#Aqui se llama a la funcion que se encarga de traer los titulos,resumenes
+list_dic_noticias=web_scraping(lista_url_completa)#Aqui se llama a la funcion que se encarga de traer los titulos,resumenes
 
 
 
+for noticia in list_dic_noticias:
+    resumen_actual = noticia['contenido']
+    nuevo_resumen = ' '.join(resumen_actual)
 
-#menu-block-title
+    nuevo_resumen = funciones.eliminar_caracteres(nuevo_resumen)
+    nuevo_resumen = nuevo_resumen.split()
+    nuevo_resumen = funciones.eliminar_numeros_lista(nuevo_resumen)
+    nuevo_resumen = [elemento.lower() for elemento in nuevo_resumen]
+    nuevo_resumen = list(filter(None, nuevo_resumen))
+    nuevo_resumen = funciones.eliminar_stopwords(nuevo_resumen)
+    nuevo_resumen = funciones.eliminar_caracteres_unicos(nuevo_resumen)
+    noticia['contenido'] = nuevo_resumen
 
-print("\nSe genero un archivo de texto...\n")
+
+elemento=list_dic_noticias[0]
+print('\n'+elemento['titulo'])
+print('\n')
+print(elemento['contenido'])
+
+
+
+listdiv=['Elecciones 2023', 'Deportivo', 'Show', 
+         'Tecno', 'Autos', 'Estilo', 'Campo',
+         'Política', 'Sociedad', 'Economía', 'Internacional', 'Policiales', 'Opinión', 'Clima', 
+         'Horóscopo', 'Turismo', 'General'
+         ]
+
+print(listdiv)
 

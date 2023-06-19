@@ -110,6 +110,7 @@ funciones.clear_screen()#Borra pantalla
 
 
 
+
 textobusq=input('Ingrese el la seccion de noticias: ')#ingresar economia,politica,sociedad o algunos de la barra menos ultimas noticias
 
 

@@ -8,7 +8,7 @@ def clear_screen():
 
 import re
 def eliminar_caracteres(cadena):
-    caracteres = ['"', "'", ",", ";",":",".","-","“","”","°","(",")","/","[","]","$","?","¿","¡","!","%","‘","’"]
+    caracteres = ['"', "'", ",", ";",":",".","-","“","”","°","(",")","/","[","]","$","?","¿","¡","!","%","‘","’","–","—"]
     for caracter in caracteres:
         cadena = cadena.replace(caracter, "")
     return cadena
