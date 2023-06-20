@@ -1,8 +1,9 @@
 import funciones
-
-#####################################################################################################
 import requests
 from bs4 import BeautifulSoup
+
+#####################################################################################################
+
 def conseguir_url(url,textobusq):
             response = requests.get(url)
             soup = BeautifulSoup(response.text, 'html.parser')
@@ -18,8 +19,6 @@ def conseguir_url(url,textobusq):
                             
             return urls_noticias
 #####################################################################################################
-import requests
-from bs4 import BeautifulSoup
 
 
 def web_scraping(links,textobusq,url_base):
@@ -61,10 +60,6 @@ def web_scraping(links,textobusq,url_base):
     return noticias
 
 
-
-import requests
-from bs4 import BeautifulSoup
-
 def web_scrapping_div(links):
     elementodiv=[]
     url = links
@@ -102,9 +97,6 @@ def obtener_lista_url_completa(url_base):
 
 
 
-
-funciones.clear_screen()#Borra pantalla
-# Uso de la función
 url_base = 'https://www.ambito.com'
 
 lista_url_completa,textobusq = obtener_lista_url_completa(url_base)
@@ -116,4 +108,6 @@ list_dic_noticias=web_scraping(lista_url_completa,textobusq,url_base)#Aqui se ll
 funciones.procesar_noticias(list_dic_noticias)
 
 indice_invertido = funciones.crear_indice_invertido(list_dic_noticias)
+
 funciones.buscar_y_mostrar_noticias(indice_invertido)
+

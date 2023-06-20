@@ -23,7 +23,7 @@ import requests
 from bs4 import BeautifulSoup
 
  
-def web_scraping(links):
+def web_scraping(links,textobusq,url_base):
     noticias = []
     for link in links:
         url = link
@@ -50,10 +50,6 @@ def web_scraping(links):
         else:
             resumen = ""
 
-
-
-
-
         div_contenido = soup.find('div', class_='partner-wrapper article-page__body-row')
 
 
@@ -76,65 +72,12 @@ def web_scraping(links):
                 lista_parrafos.append(texto)
 
         else:
-            print("No se encontró el div de contenido.")
-        
+            print("")
+        # Diccionario con cada elemento de la pagina a consultar 
+        noticias.append({'titulo': titulo,'resumen': resumen, 'contenido': lista_parrafos,'sitio':'El Diario AR','url_sitio':url_base,'seccion':textobusq,'link':link}) 
 
-        
-        # Diccionario con cada elemento de la pagina a consultar
-        noticias.append({'titulo': titulo,'resumen': resumen, 'contenido': lista_parrafos}) 
     return noticias
-
-
-
 #####################################################################################################
-
-
-funciones.clear_screen()#Borra pantalla
-
-textobusq=input('Ingrese el la seccion de noticias: ')#ingresar economia,politica,sociedad o algunos de la barra menos ultimas noticias
-
-
-url=('https://www.eldiarioar.com/'+textobusq+'/')
-lista_de_noticias=conseguir_url(url,textobusq)
-lista_de_noticias = list(set(lista_de_noticias))
-lista_de_noticias = [noticia for noticia in lista_de_noticias if noticia is not None]
-lista_de_noticias.sort()
-
-print(lista_de_noticias)
-
-url_base = 'https://www.eldiarioar.com/'
-
-lista_url_completa=[] #la url completa de las noticias va estar formado por el url base + cada link de
-#la lista de noticias
-
-print('Accediendo a todas las paginas de https://www.eldiarioar.com/ ...\n')
-for noticia in lista_de_noticias:
-    lista_url_completa.append(noticia)
-#######################################################################
-
-#print(lista_url_completa)
-
-
-list_dic_noticias=web_scraping(lista_url_completa)#Aqui se llama a la funcion que se encarga de traer los titulos,resumenes
-
-for noticia in list_dic_noticias:
-    resumen_actual = noticia['contenido']
-    nuevo_resumen = ' '.join(resumen_actual)
-
-    nuevo_resumen = funciones.eliminar_caracteres(nuevo_resumen)
-    nuevo_resumen = nuevo_resumen.split()
-    nuevo_resumen = funciones.eliminar_numeros_lista(nuevo_resumen)
-    nuevo_resumen = [elemento.lower() for elemento in nuevo_resumen]
-    nuevo_resumen = list(filter(None, nuevo_resumen))
-    nuevo_resumen = funciones.eliminar_stopwords(nuevo_resumen)
-    nuevo_resumen = funciones.eliminar_caracteres_unicos(nuevo_resumen)
-    noticia['contenido'] = nuevo_resumen
-
-
-elemento=list_dic_noticias[0]
-print('\n'+elemento['titulo'])
-print('\n')
-print(elemento['contenido'])
 
 listdiv = [
     'Política',
@@ -151,5 +94,34 @@ listdiv = [
     'Mejor vivir'
 ]
 
+listdiv=funciones.procesar_lista(listdiv)
 
-print(listdiv)
+
+def obtener_lista_url_completa(url_base):
+    lista_url_completa = []
+    textobusq=""
+    textobusq = input('\nIngrese la sección de noticias: ')###Es con el item selecionado
+    url=(url_base+textobusq+'/')
+    lista_de_noticias = conseguir_url(url, textobusq)
+    lista_de_noticias = list(set(lista_de_noticias))
+    lista_de_noticias = [noticia for noticia in lista_de_noticias if noticia is not None]
+    lista_de_noticias.sort()
+    lista_url_completa.extend(lista_de_noticias)
+    return lista_url_completa,textobusq
+
+
+
+url_base = 'https://www.eldiarioar.com/'
+
+lista_url_completa,textobusq = obtener_lista_url_completa(url_base)
+
+list_dic_noticias=web_scraping(lista_url_completa,textobusq,url_base)#Aqui se llama a la funcion que se encarga de traer los titulos,resumenes
+
+funciones.procesar_noticias(list_dic_noticias)
+
+indice_invertido = funciones.crear_indice_invertido(list_dic_noticias)
+
+funciones.buscar_y_mostrar_noticias(indice_invertido)
+
+
+

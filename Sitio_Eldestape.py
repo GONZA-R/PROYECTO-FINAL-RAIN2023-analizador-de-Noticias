@@ -1,14 +1,14 @@
 import funciones
-#####################################################################################################
-
 import requests
 from bs4 import BeautifulSoup
+
+#####################################################################################################
+
 def conseguir_url(url):
             response = requests.get(url)
             soup = BeautifulSoup(response.text, 'html.parser')
             urls_noticias=[]
             divs = soup.find_all('div', {'class': 'contenedor notas_seccion_ grid'}) #Segun la estructura html de la pagina
-            #los links a necesitar se encuentran en la class = d23_content-section
             for div in divs:
                 links = div.find_all('a')
                 for link in links:
@@ -18,11 +18,9 @@ def conseguir_url(url):
                             
             return urls_noticias
 #####################################################################################################
-import requests
-from bs4 import BeautifulSoup
 
 
-def web_scraping(links):
+def web_scraping(links,textobusq,url_base):
     noticias = []
     for link in links:
         url = link
@@ -68,66 +66,21 @@ def web_scraping(links):
             pass
 
         else:
-            print("No se encontró el div de contenido.")
+            print("")
             
-        
         # Diccionario con cada elemento de la pagina a consultar
-        noticias.append({'titulo': titulo,'resumen': resumen, 'contenido': lista_parrafos})
-
+        noticias.append({'titulo': titulo,'resumen': resumen, 'contenido': lista_parrafos,'sitio':'El Destape','url_sitio':url_base,'seccion':textobusq,'link':link}) 
+        
     return noticias
 
-
-
 #####################################################################################################
-
-
-funciones.clear_screen()#Borra pantalla
-
-textobusq=input('Ingrese la seccion de noticias: ')#ingresar economia,politica,sociedad o algunos de la barra 
-
-
-url='https://www.eldestapeweb.com/seccion/'+textobusq+'/'
-lista_de_noticias=conseguir_url(url)
-lista_de_noticias = list(set(lista_de_noticias))
-lista_de_noticias.sort()
-
-
-
-
-
-url_base = 'https://www.eldestapeweb.com'
-
-lista_url_completa=[] #la url completa de las noticias va estar formado por el url base + cada link de
-#la lista de noticias
-
-print('Accediendo a todas las paginas de https://www.eldestapeweb.com ...\n')
-for noticia in lista_de_noticias:
-    lista_url_completa.append(url_base+noticia)
-
-
-lista_url_completa = [url for url in lista_url_completa if url.startswith('https://www.eldestapeweb.com/'+textobusq)]
-
-print(lista_url_completa)
-#######################################################################
-
-
-list_dic_noticias=web_scraping(lista_url_completa)#Aqui se llama a la funcion que se encarga de traer los titulos,resumenes
-
-
-import requests
-from bs4 import BeautifulSoup
-
 def web_scrapping_div(links):
     listdiv=[]
-    
     url = links
     response = requests.get(url)
     html = response.text
-        
     # O cualquier valor por defecto que desees asignar si no se encuentra el elemento
-
     soup = BeautifulSoup(html, 'html.parser')
-
     ul_elements = soup.find('ul',class_='menu menu__mobile')
 
     for ul in ul_elements:
@@ -135,7 +88,6 @@ def web_scrapping_div(links):
         for a in a_elements:
             texto = a.text.strip()
             listdiv.append(texto)
-
     ul_elements = soup.find('ul',class_='menu2')
 
     for ul in ul_elements:
@@ -143,41 +95,45 @@ def web_scrapping_div(links):
         for a in a_elements:
             texto = a.text.strip()
             listdiv.append(texto)
-
-
+    # Elementos a eliminar
+    elementos_eliminar = ['#ATR', 'Secciones editoriales', 'Videos', 'Radio', 'Programación']
+    # Eliminar los elementos de la lista
+    for elemento in elementos_eliminar:
+        if elemento in listdiv:
+            listdiv.remove(elemento)
+    listdiv=funciones.procesar_lista(listdiv)   
     return listdiv
 
 
+def obtener_lista_url_completa(url_base):
+    lista_url_completa = []
+    textobusq=""
+    textobusq = input('\nIngrese la sección de noticias: ')###Es con el item selecionado
+    url = url_base+'/seccion/' + textobusq + '/'
 
-for noticia in list_dic_noticias:
-    resumen_actual = noticia['contenido']
-    nuevo_resumen = ' '.join(resumen_actual)
-    nuevo_resumen = funciones.eliminar_caracteres(nuevo_resumen)
-    nuevo_resumen = nuevo_resumen.split()
-    nuevo_resumen = funciones.eliminar_numeros_lista(nuevo_resumen)
-    nuevo_resumen = [elemento.lower() for elemento in nuevo_resumen]
-    nuevo_resumen = list(filter(None, nuevo_resumen))
-    nuevo_resumen = funciones.eliminar_stopwords(nuevo_resumen)
-    nuevo_resumen = funciones.eliminar_caracteres_unicos(nuevo_resumen)
-    noticia['contenido'] = nuevo_resumen
+    lista_de_noticias = conseguir_url(url)
+    lista_de_noticias = list(set(lista_de_noticias))
+    lista_de_noticias.sort()
+
+    lista_url_completa = [url_base + noticia for noticia in lista_de_noticias]
+    lista_url_completa = [url for url in lista_url_completa if url.startswith('https://www.eldestapeweb.com/' + textobusq)]
+
+    return lista_url_completa,textobusq
 
 
-elemento=list_dic_noticias[0]
-print('\n'+elemento['titulo'])
-print('\n')
-print(elemento['contenido'])
+
+url_base = 'https://www.eldestapeweb.com'
+
+lista_url_completa,textobusq = obtener_lista_url_completa(url_base)
 
 listdiv=web_scrapping_div(url_base)
 
-# Elementos a eliminar
-elementos_eliminar = ['#ATR', 'Secciones editoriales', 'Videos', 'Radio', 'Programación']
+list_dic_noticias=web_scraping(lista_url_completa,textobusq,url_base)#Aqui se llama a la funcion que se encarga de traer los titulos,resumenes
 
-# Eliminar los elementos de la lista
-for elemento in elementos_eliminar:
-    if elemento in listdiv:
-        listdiv.remove(elemento)
+funciones.procesar_noticias(list_dic_noticias)
 
+indice_invertido = funciones.crear_indice_invertido(list_dic_noticias)
 
-print(listdiv)
+funciones.buscar_y_mostrar_noticias(indice_invertido)
 
 

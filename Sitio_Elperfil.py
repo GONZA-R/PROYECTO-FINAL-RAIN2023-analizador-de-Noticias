@@ -1,8 +1,8 @@
 import funciones
-#####################################################################################################
-
 import requests
 from bs4 import BeautifulSoup
+
+#####################################################################################################
 def conseguir_url(url,textobusq):
             response = requests.get(url)
             soup = BeautifulSoup(response.text, 'html.parser')
@@ -13,15 +13,11 @@ def conseguir_url(url,textobusq):
                 for link in links:
                     href = link.get('href')
                     if href and href.startswith('https://www.perfil.com/noticias/'+textobusq+'/'):
-                        urls_noticias.append(href)
-                            
+                        urls_noticias.append(href)          
             return urls_noticias
 #####################################################################################################
-import requests
-from bs4 import BeautifulSoup
 
-
-def web_scraping(links):
+def web_scraping(links,textobusq,url_base):
     noticias = []
     for link in links:
         url = link
@@ -64,60 +60,11 @@ def web_scraping(links):
 
         else:
             print("No se encontró el div de contenido.")
-        
-        
-        # Diccionario con cada elemento de la pagina a consultar
-        noticias.append({'titulo': titulo,'resumen': resumen, 'contenido': lista_parrafos}) 
+
+        noticias.append({'titulo': titulo,'resumen': resumen, 'contenido': lista_parrafos,'sitio':'El Perfil','url_sitio':url_base,'seccion':textobusq,'link':link}) 
 
     return noticias
 
-
-
-#####################################################################################################
-
-funciones.clear_screen()#Borra pantalla
-
-textobusq=input('Ingrese el la seccion de noticias: ')#ingresar economia,politica,sociedad o algunos de la barra menos ultimas noticias
-
-
-url='https://www.perfil.com/seccion/'+textobusq
-lista_de_noticias=conseguir_url(url,textobusq)
-lista_de_noticias = list(set(lista_de_noticias))
-lista_de_noticias = [noticia for noticia in lista_de_noticias if noticia is not None]
-lista_de_noticias.sort()
-
-
-url_base = 'https://www.perfil.com/'
-
-lista_url_completa=[] #la url completa de las noticias va estar formado por el url base + cada link de
-#la lista de noticias
-
-print('Accediendo a todas las paginas de https://www.perfil.com/ ...\n')
-for noticia in lista_de_noticias:
-    lista_url_completa.append(noticia)
-#######################################################################
-print(lista_url_completa)
-
-
-list_dic_noticias=web_scraping(lista_url_completa)#Aqui se llama a la funcion que se encarga de traer los titulos,resumenes
-
-for noticia in list_dic_noticias:
-    resumen_actual = noticia['contenido']
-    nuevo_resumen = ' '.join(resumen_actual)
-
-    nuevo_resumen = funciones.eliminar_caracteres(nuevo_resumen)
-    nuevo_resumen = nuevo_resumen.split()
-    nuevo_resumen = funciones.eliminar_numeros_lista(nuevo_resumen)
-    nuevo_resumen = [elemento.lower() for elemento in nuevo_resumen]
-    nuevo_resumen = list(filter(None, nuevo_resumen))
-    nuevo_resumen = funciones.eliminar_stopwords(nuevo_resumen)
-    nuevo_resumen = funciones.eliminar_caracteres_unicos(nuevo_resumen)
-    noticia['contenido'] = nuevo_resumen
-
-
-
-import requests
-from bs4 import BeautifulSoup
 
 def web_scrapping_div(links):
     listdiv=[]
@@ -127,7 +74,6 @@ def web_scrapping_div(links):
     html = response.text
         
     # O cualquier valor por defecto que desees asignar si no se encuentra el elemento
-
     soup = BeautifulSoup(html,'html.parser')
 
     side_menu_group = soup.find('ul', class_='side-menu__group')
@@ -135,37 +81,57 @@ def web_scrapping_div(links):
     div_no = side_menu_group.find_all('ul', class_='side-menu__topics')
     for div in div_no:
         div.decompose()
-
-
     links = side_menu_group.find_all('a')
 
     for link in links:
         listdiv.append(link.text.strip())
 
+    # Elementos a eliminar
+    elementos_eliminar = ['Último momento', 'Ahora', 'Columnistas', 'Opinión', 
+                        'CARAS', 'Exitoina', 'Videos', 'Críticas', 'Córdoba', 'Reperfilar', 'Business', 
+                        'Empresas y Protagonistas', 'Noticias', 'Caras', 'Exitoina', 'Vivo', 'Caras', 'Noticias', 
+                        'Weekend', 'Fortuna', 'Parabrisas', 'Rouge', 'Hombre', 'Supercampo', 'Luz', 'Look', 'Mía', 'Lunateen', 
+                        'BATimes', 'Radio Perfil en vivo', 'Net', 'Canal E','Ocio']
+
+    # Eliminar los elementos de la lista
+    for elemento in elementos_eliminar:
+        if elemento in listdiv:
+            listdiv.remove(elemento)
+        
     return listdiv
 
 
+def obtener_lista_url_completa(url_base):
+    lista_url_completa = []
+    textobusq=""
+    textobusq = input('\nIngrese la sección de noticias: ')###Es con el item selecionado
+    url=url_base+'seccion/'+textobusq
+    lista_de_noticias = conseguir_url(url, textobusq)
+    lista_de_noticias = list(set(lista_de_noticias))
+    lista_de_noticias = [noticia for noticia in lista_de_noticias if noticia is not None]
+    lista_de_noticias.sort()
+    lista_url_completa.extend(lista_de_noticias)
+    return lista_url_completa,textobusq
 
-elemento=list_dic_noticias[0]
-print('\n'+elemento['titulo'])
-print('\n')
-print(elemento['contenido'])
+
+
+url_base = 'https://www.perfil.com/'
+
+lista_url_completa,textobusq = obtener_lista_url_completa(url_base)
 
 listdiv=web_scrapping_div(url_base)
-#listdiv.remove('Últimas noticias')
+
+list_dic_noticias=web_scraping(lista_url_completa,textobusq,url_base)#Aqui se llama a la funcion que se encarga de traer los titulos,resumenes
+
+funciones.procesar_noticias(list_dic_noticias)
+
+indice_invertido = funciones.crear_indice_invertido(list_dic_noticias)
+
+funciones.buscar_y_mostrar_noticias(indice_invertido)
 
 
-# Elementos a eliminar
-elementos_eliminar = ['Último momento', 'Ahora', 'Columnistas', 'Opinión', 
-                       'CARAS', 'Exitoina', 'Videos', 'Críticas', 'Córdoba', 'Reperfilar', 'Business', 
-                       'Empresas y Protagonistas', 'Noticias', 'Caras', 'Exitoina', 'Vivo', 'Caras', 'Noticias', 
-                       'Weekend', 'Fortuna', 'Parabrisas', 'Rouge', 'Hombre', 'Supercampo', 'Luz', 'Look', 'Mía', 'Lunateen', 
-                       'BATimes', 'Radio Perfil en vivo', 'Net', 'Canal E','Ocio']
 
-# Eliminar los elementos de la lista
-for elemento in elementos_eliminar:
-    if elemento in listdiv:
-        listdiv.remove(elemento)
 
-print(listdiv)
+
+
 
