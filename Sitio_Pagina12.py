@@ -56,7 +56,7 @@ def web_scraping(links,textobusq,url_base):
             print("")
         
         # Diccionario con cada elemento de la pagina a consultar
-        noticias.append({'titulo': titulo,'resumen': resumen, 'contenido': lista_parrafos,'sitio':'La Nacion','url_sitio':url_base,'seccion':textobusq,'link':link}) 
+        noticias.append({'titulo': titulo,'resumen': resumen, 'contenido': lista_parrafos,'sitio':'Pagina 12','url_sitio':url_base,'seccion':textobusq,'link':link}) 
     return noticias
 
 

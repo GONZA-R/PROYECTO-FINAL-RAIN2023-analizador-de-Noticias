@@ -78,15 +78,15 @@ def web_scrapping_div(links):
     else:
             print("")
     listdiv=funciones.procesar_lista(listdiv)
-    #listdiv.remove('últimas-noticias')
+    listdiv.remove('ultimas-noticias')
     return listdiv
 
 
 
-def obtener_lista_url_completa(url_base):
+def obtener_lista_url_completa(url_base,textobusq):
     lista_url_completa = []
-    textobusq=""
-    textobusq = input('\nIngrese la sección de noticias: ')###Es con el item selecionado
+    #textobusq=""
+    #textobusq = input('\nIngrese la sección de noticias: ')###Es con el item selecionado
     url = url_base + '/contenidos/' + textobusq + '.html'
     lista_de_noticias = conseguir_url(url, textobusq)
     lista_de_noticias = list(set(lista_de_noticias))
@@ -95,13 +95,11 @@ def obtener_lista_url_completa(url_base):
     lista_url_completa.extend(lista_de_noticias)
     return lista_url_completa,textobusq
 
-
+"""
 
 url_base = 'https://www.ambito.com'
 
 lista_url_completa,textobusq = obtener_lista_url_completa(url_base)
-
-print(lista_url_completa)
 
 listdiv=web_scrapping_div(url_base)
 
@@ -113,3 +111,4 @@ indice_invertido = funciones.crear_indice_invertido(list_dic_noticias)
 
 funciones.buscar_y_mostrar_noticias(indice_invertido)
 
+"""

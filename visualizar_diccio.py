@@ -40,49 +40,6 @@ ventana_principal.mainloop()
 
 
 
-import tkinter as tk
-from tkinter import ttk
-
-# Variable global para almacenar el item seleccionado
-item_seleccionado = ""
-
-def seleccionar_item(event):
-    global item_seleccionado
-    item_seleccionado = combo.get()
-    print("Item seleccionado:", item_seleccionado)
-
-# Crear ventana
-ventana = tk.Tk()
-ventana.title("Lista Desplegable")
-ventana.geometry("300x200")
-
-
-#exec(open('Sitio_Ambitos.py').read())
-
-#from Sitio_Ambitos import listdiv  #Trae la lista de divs de la pagina Sitio_ambitos.py
-
-from funciones import url_bases
-
-
-# Crear lista desplegable
-opciones = url_bases
-combo = ttk.Combobox(ventana, values=opciones,width=30)
-combo.pack(pady=40)
-
-
-# Configurar evento de selección de item
-combo.bind("<<ComboboxSelected>>", seleccionar_item)
-
-
-# Iniciar bucle principal
-ventana.mainloop()
-
-# Imprimir el valor del item seleccionado después de cerrar la ventana
-print("Valor del item seleccionado:", item_seleccionado)
-
-
-
-
 """
 import tkinter as tk
 
@@ -100,4 +57,106 @@ cuadro_texto.pack()
 
 # Ejecutar el bucle principal de la ventana
 ventana.mainloop()
+"""
+
+
+import tkinter as tk
+
+
+def cerrar_ventana():
+    ventana_noticia.destroy()
+
+def mostrar_noticia(titulo, resumen, contenido):
+    global ventana_noticia
+
+    ventana_noticia = tk.Tk()
+    ventana_noticia.title("Noticia")
+
+    # Título de la noticia
+    etiqueta_titulo = tk.Label(ventana_noticia, text=titulo, font=("Helvetica", 16, "bold"))
+    etiqueta_titulo.pack(pady=10)
+
+    # Resumen de la noticia
+    etiqueta_resumen = tk.Label(ventana_noticia, text=resumen, wraplength=400)
+    etiqueta_resumen.pack(pady=10)
+
+    # Contenido de la noticia
+    etiqueta_contenido = tk.Label(ventana_noticia, text=contenido, wraplength=400)
+    etiqueta_contenido.pack(pady=10)
+
+    # Botón de cierre
+    boton_cerrar = tk.Button(ventana_noticia, text="Cerrar", command=cerrar_ventana)
+    boton_cerrar.pack(pady=10)
+
+    # Iniciar bucle principal de la ventana de la noticia
+    ventana_noticia.mainloop()
+
+
+
+# Ejemplo de uso
+titulo_noticia = "Título de la noticia"
+resumen_noticia = "Resumen de la noticia"
+contenido_noticia = "Contenido de la noticia"
+
+mostrar_noticia(titulo_noticia, resumen_noticia, contenido_noticia)
+
+
+
+
+"""import tkinter as tk
+from PIL import ImageTk, Image
+import requests
+from io import BytesIO
+
+def cerrar_ventana():
+    ventana_noticia.destroy()
+
+def mostrar_noticia(titulo, resumen, imagen_url, contenido):
+    global ventana_noticia
+    #global imagen_url
+    #magen_url=url
+    print("La url es:",imagen_url)
+
+    ventana_noticia = tk.Tk()
+    ventana_noticia.title("Noticia")
+
+    # Título de la noticia
+    etiqueta_titulo = tk.Label(ventana_noticia, text=titulo, font=("Helvetica", 16, "bold"))
+    etiqueta_titulo.pack(pady=10)
+
+    # Resumen de la noticia
+    etiqueta_resumen = tk.Label(ventana_noticia, text=resumen, wraplength=400)
+    etiqueta_resumen.pack(pady=10)
+
+
+
+    # Descargar la imagen desde la URL
+    response = requests.get(imagen_url)
+    imagen_data = response.content
+    imagen = Image.open(BytesIO(imagen_data))
+
+    # Mostrar la imagen de la noticia
+    imagen_noticia = ImageTk.PhotoImage(imagen)
+    etiqueta_imagen = tk.Label(ventana_noticia, image=imagen_noticia)
+    etiqueta_imagen.pack(pady=10)
+
+    # Contenido de la noticia
+    etiqueta_contenido = tk.Label(ventana_noticia, text=contenido, wraplength=400)
+    etiqueta_contenido.pack(pady=10)
+
+    # Botón de cierre
+    boton_cerrar = tk.Button(ventana_noticia, text="Cerrar", command=cerrar_ventana)
+    boton_cerrar.pack(pady=10)
+
+    # Iniciar bucle principal de la ventana de la noticia
+    ventana_noticia.mainloop()
+
+# Ejemplo de uso
+titulo_noticia = "Título de la noticia"
+resumen_noticia = "Resumen de la noticia"
+global imagen_url
+imagen_url = "https://media.ambito.com/p/a44de4200a4c87a01ed73995ca711d24/adjuntos/239/imagenes/040/173/0040173506/billeteras-digitalesjpg.jpg"  # URL de la imagen
+contenido_noticia = "Contenido de la noticia"
+
+mostrar_noticia(titulo_noticia, resumen_noticia, imagen_url, contenido_noticia)
 """

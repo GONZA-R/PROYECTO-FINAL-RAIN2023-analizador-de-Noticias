@@ -94,11 +94,14 @@ def crear_indice_invertido(noticias):
 
     return indice
 
+import tkinter as tk
+from tkinter import messagebox
 
 def buscar_noticias(indice, palabra_clave):
     if palabra_clave in indice:
         return indice[palabra_clave]
     else:
+        messagebox.showinfo("Alerta", "No se encontraron resultados con esa busqueda.")
         return []
 
 
@@ -111,30 +114,32 @@ def eliminar_elementos_repetidos(lista):
     return lista_sin_repetidos
 
 
-
-
-def buscar_y_mostrar_noticias(indice_invertido):
-    palabra_clave = input("Ingrese una palabra clave para buscar noticias: ")
+def buscar_y_guardar_noticias(indice_invertido,palabra_clave):
+    #palabra_clave = input("Ingrese una palabra clave para buscar noticias: ")
     palabra_clave = palabra_clave.lower()
     noticias_relacionadas = buscar_noticias(indice_invertido, palabra_clave)
     noticias_relacionadas = eliminar_elementos_repetidos(noticias_relacionadas)
 
+    noticias_diccionario = {}
+
     if noticias_relacionadas:
         print("\nNoticias relacionadas con la palabra clave:", palabra_clave)
-        for noticia in noticias_relacionadas:
-            print('\n')
-            print("Título:", noticia["titulo"])
-            print("Resumen:", noticia["resumen"])
-            print("Contenido:", noticia["contenido"])
-            print("Sitio:", noticia["sitio"])
-            print("URL del sitio:", noticia["url_sitio"])
-            print("Sección:", noticia["seccion"])
-            print("Enlace:", noticia["link"])
+        for i, noticia in enumerate(noticias_relacionadas):
+            noticia_diccionario = {
+                "titulo": noticia["titulo"],
+                "resumen": noticia["resumen"],
+                "contenido": noticia["contenido"],
+                "sitio": noticia["sitio"],
+                "url_sitio": noticia["url_sitio"],
+                "seccion": noticia["seccion"],
+                "link": noticia["link"]
+            }
+            noticias_diccionario[i] = noticia_diccionario
 
-            print("\n**************************************************")
+        return noticias_diccionario
     else:
         print("No se encontraron noticias relacionadas con la palabra clave:", palabra_clave)
-
+        return noticias_diccionario
 
 
 ################

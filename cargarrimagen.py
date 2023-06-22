@@ -1,25 +1,16 @@
-from PIL import Image
-import requests
-from io import BytesIO
-import matplotlib.pyplot as plt
+import tkinter as tk
 
-def cargar_y_visualizar_imagen(url,texto):
-    # Obtener la imagen de la URL
-    response = requests.get(url)
-    img = Image.open(BytesIO(response.content))
+def abrir_ventana_secundaria():
+    ventana_secundaria = tk.Toplevel(ventana_principal)
+    boton_volver = tk.Button(ventana_secundaria, text="Volver", command=ventana_secundaria.destroy)
+    boton_volver.pack()
 
-    # Mostrar la imagen
-    fig, ax = plt.subplots()
-    ax.imshow(img)
-    ax.axis('off')
+# Crear ventana principal
+ventana_principal = tk.Tk()
 
-    # Agregar el párrafo de texto
-    ax.text(0.5, -0.1, texto, transform=ax.transAxes,
-            fontsize=12, color='red', ha='center')
-    plt.show()
+# Crear botón que abrirá la ventana secundaria
+boton_abrir = tk.Button(ventana_principal, text="Abrir", command=abrir_ventana_secundaria)
+boton_abrir.pack()
 
-
-texto=('El reporte del organismo estadístico provincial señaló que la inflación acumulada en los cinco primeros meses del año'+'El reporte del organismo estadístico provincial señaló que la inflación acumulada en los cinco primeros meses del año'+'El reporte del organismo estadístico provincial señaló que la inflación acumulada en los cinco primeros meses del año'+'El reporte del organismo estadístico provincial señaló que la inflación acumulada en los cinco primeros meses del año')
-
-url_imagen = 'https://media.ambito.com/p/e2cbce923430877155fa0be663ddc911/adjuntos/239/imagenes/035/981/0035981419/ypf-naftasjpg.jpg'
-cargar_y_visualizar_imagen(url_imagen,texto)
+# Iniciar el bucle principal de la aplicación
+ventana_principal.mainloop()
