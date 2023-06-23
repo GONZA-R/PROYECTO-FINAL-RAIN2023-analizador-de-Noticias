@@ -1,7 +1,7 @@
 
 import tkinter as tk
 from tkinter import scrolledtext
-import funcionesfinal
+import funciones
 
 def cerrar_ventana():
     ventana_noticia.destroy()
@@ -10,8 +10,8 @@ def cerrar_ventana():
 
 def abrir_estadisticas():
     global listfrecc2
-    funcionesfinal.graficar_barras(listfrecc2)
-    funcionesfinal.graficar_torta(listfrecc2)
+    funciones.graficar_barras(listfrecc2)
+    funciones.graficar_torta(listfrecc2)
 
 
 def listas_frecuencias():
@@ -21,7 +21,7 @@ def listas_frecuencias():
 
     global listfrecc
 
-    resultado = funcionesfinal.obtener_palabras_frecuentes_todas(listfrecc)
+    resultado = funciones.obtener_palabras_frecuentes_todas(listfrecc)
 
 
     # Crear el Text widget
@@ -53,6 +53,8 @@ def mostrar_noticia(titulo, resumen, contenido):
     # Establecer el tamaño de la ventana
     ventana_noticia.geometry("900x500")  # Cambia las dimensiones según tus necesidades
 
+    ventana_noticia.configure(bg="lightblue")
+
     etiqueta_titulo = tk.Label(ventana_noticia, text=titulo, font=("Helvetica", 16, "bold"))
     etiqueta_titulo.pack(pady=10)
 
@@ -74,11 +76,11 @@ def mostrar_noticia(titulo, resumen, contenido):
     boton_listas_frecc.place(x=220, y=350)
 
     global listfrecc
-    listfrecc=funcionesfinal.procesar_noticias_freccuencia(contenido)
+    listfrecc=funciones.procesar_noticias_freccuencia(contenido)
 
 
     global listfrecc2
-    listfrecc2=funcionesfinal.obtener_palabras_frecuentes(listfrecc)
+    listfrecc2=funciones.obtener_palabras_frecuentes(listfrecc)
 
     
     ventana_noticia.mainloop()

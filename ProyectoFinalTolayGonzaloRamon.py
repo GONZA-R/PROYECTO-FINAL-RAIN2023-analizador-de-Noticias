@@ -285,7 +285,7 @@ def abrir_ventana_principal():
     cuadro_texto.place(x=100, y=310)
 
     # Crear botón para obtener el valor del cuadro de texto
-    boton_cargar = tk.Button(ventana, text="Cargar", command=obtener_valor)
+    boton_cargar = tk.Button(ventana, text="Buscar", command=obtener_valor)
     boton_cargar.place(x=100, y=350)
 
     # Crear botón para borrar el contenido del cuadro de texto
@@ -297,6 +297,9 @@ def abrir_ventana_principal():
     label5.place(x=370, y=270)
     cuadro_salida = scrolledtext.ScrolledText(ventana, width=80,height=12)
     cuadro_salida.place(x=370, y=310)
+
+
+    
     #########################################################################################################
 
     def completarNoticia():
@@ -430,11 +433,23 @@ def abrir_ventana_principal():
         for valor in noticias_diccionario.values():
             titulo = valor.get('titulo', '')
             enlace = valor.get('link', '')
-            cuadro_salida.insert(tk.END, f"Título: {titulo}\n")
-            cuadro_salida.insert(tk.END, f"Enlace: {enlace}\n")
+            cuadro_salida.insert(tk.END, f"Título: {titulo}\n\n")
+            cuadro_salida.insert(tk.END, f"Enlace: {enlace}\n\n")
             cuadro_salida.insert(tk.END, "**********************\n")
+        # Configurar evento de selección en el TextBox
+        cuadro_salida.bind("<ButtonRelease-1>", enviar_seleccion2)
 
-    ##############################################################################
+
+    def enviar_seleccion2(event):
+        # Verificar si hay texto seleccionado en el TextBox
+        if cuadro_salida.tag_ranges(tk.SEL):
+            # Obtener el texto seleccionado del TextBox
+            texto_seleccionado = cuadro_salida.get(tk.SEL_FIRST, tk.SEL_LAST)
+            # Llamar a la función deseada con el texto seleccionado
+            otra_funcion2(texto_seleccionado)
+
+
+##############################################################################
 
 
 
@@ -461,15 +476,38 @@ def abrir_ventana_bienvenida():
 
     # Etiqueta de bienvenida
     etiqueta_bienvenida = tk.Label(ventana_bienvenida, text="NewsXplorer - Sistema de Recuperacion WEB", foreground="red", font=("Arial", 28))
-    etiqueta_bienvenida.place(relx=0.5, rely=0.3, anchor=tk.CENTER)
+    etiqueta_bienvenida.place(relx=0.5, rely=0.1, anchor=tk.CENTER)
 
-
+    
     # Botón para acceder a la ventana principal
-    boton_acceder = tk.Button(ventana_bienvenida, text="INICIAR", command=abrir_ventana_principal)
-    boton_acceder.pack(pady=200)
+    boton_acceder = tk.Button(ventana_bienvenida, text="INICIAR",width=10, height=2,borderwidth=2, relief="solid",command=abrir_ventana_principal)
+    boton_acceder.place(relx=0.5, rely=0.9, anchor=tk.CENTER)
+    
+
+    ###########################3
+    from PIL import ImageTk, Image
+    # Cargar la imagen
+    ruta_imagen = "imagen2.png"  # Reemplaza con la ruta de tu imagen
+    imagen = Image.open(ruta_imagen)
+
+    # Redimensionar la imagen
+    imagen = imagen.resize((600, 300))
+
+    # Crear un objeto ImageTk para mostrar la imagen en la ventana
+    imagen_tk = ImageTk.PhotoImage(imagen)
+
+    # Crear un widget Label para mostrar la imagen
+    label_imagen = tk.Label(ventana_bienvenida, image=imagen_tk)
+    label_imagen.place(relx=0.5, rely=0.5, anchor=tk.CENTER)
+
+
+
+    ########################################3
 
     # Iniciar bucle principal de la ventana de bienvenida
     ventana_bienvenida.mainloop()
+
+
 
 # Llamar a la función para abrir la ventana de bienvenida
 
