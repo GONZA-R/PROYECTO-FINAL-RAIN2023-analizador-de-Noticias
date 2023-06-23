@@ -97,10 +97,10 @@ listdiv = [
 listdiv=funciones.procesar_lista(listdiv)
 
 
-def obtener_lista_url_completa(url_base):
+def obtener_lista_url_completa(url_base,textobusq):
     lista_url_completa = []
-    textobusq=""
-    textobusq = input('\nIngrese la sección de noticias: ')###Es con el item selecionado
+    #textobusq=""
+    #textobusq = input('\nIngrese la sección de noticias: ')###Es con el item selecionado
     url=(url_base+textobusq+'/')
     lista_de_noticias = conseguir_url(url, textobusq)
     lista_de_noticias = list(set(lista_de_noticias))
@@ -111,6 +111,8 @@ def obtener_lista_url_completa(url_base):
 
 
 
+
+"""
 url_base = 'https://www.eldiarioar.com/'
 
 lista_url_completa,textobusq = obtener_lista_url_completa(url_base)
@@ -122,6 +124,7 @@ funciones.procesar_noticias(list_dic_noticias)
 indice_invertido = funciones.crear_indice_invertido(list_dic_noticias)
 
 funciones.buscar_y_mostrar_noticias(indice_invertido)
+"""
 
 
 

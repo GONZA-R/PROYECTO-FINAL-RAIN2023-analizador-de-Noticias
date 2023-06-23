@@ -94,11 +94,14 @@ def crear_indice_invertido(noticias):
 
     return indice
 
+import tkinter as tk
+from tkinter import messagebox
 
 def buscar_noticias(indice, palabra_clave):
     if palabra_clave in indice:
         return indice[palabra_clave]
     else:
+        messagebox.showinfo("Alerta", "No se encontraron resultados con esa busqueda.")
         return []
 
 
@@ -111,30 +114,32 @@ def eliminar_elementos_repetidos(lista):
     return lista_sin_repetidos
 
 
-
-
-def buscar_y_mostrar_noticias(indice_invertido):
-    palabra_clave = input("Ingrese una palabra clave para buscar noticias: ")
+def buscar_y_guardar_noticias(indice_invertido,palabra_clave):
+    #palabra_clave = input("Ingrese una palabra clave para buscar noticias: ")
     palabra_clave = palabra_clave.lower()
     noticias_relacionadas = buscar_noticias(indice_invertido, palabra_clave)
     noticias_relacionadas = eliminar_elementos_repetidos(noticias_relacionadas)
 
+    noticias_diccionario = {}
+
     if noticias_relacionadas:
         print("\nNoticias relacionadas con la palabra clave:", palabra_clave)
-        for noticia in noticias_relacionadas:
-            print('\n')
-            print("Título:", noticia["titulo"])
-            print("Resumen:", noticia["resumen"])
-            print("Contenido:", noticia["contenido"])
-            print("Sitio:", noticia["sitio"])
-            print("URL del sitio:", noticia["url_sitio"])
-            print("Sección:", noticia["seccion"])
-            print("Enlace:", noticia["link"])
+        for i, noticia in enumerate(noticias_relacionadas):
+            noticia_diccionario = {
+                "titulo": noticia["titulo"],
+                "resumen": noticia["resumen"],
+                "contenido": noticia["contenido"],
+                "sitio": noticia["sitio"],
+                "url_sitio": noticia["url_sitio"],
+                "seccion": noticia["seccion"],
+                "link": noticia["link"]
+            }
+            noticias_diccionario[i] = noticia_diccionario
 
-            print("\n**************************************************")
+        return noticias_diccionario
     else:
         print("No se encontraron noticias relacionadas con la palabra clave:", palabra_clave)
-
+        return noticias_diccionario
 
 
 ################
@@ -181,3 +186,73 @@ def procesar_noticias(list_dic_noticias):
         nuevo_resumen = eliminar_stopwords(nuevo_resumen)
         nuevo_resumen = eliminar_caracteres_unicos(nuevo_resumen)
         noticia['contenido'] = nuevo_resumen
+
+
+def procesar_noticias_freccuencia(list_dic_noticias):    
+    nuevo_resumen = ' '.join(list_dic_noticias)
+    nuevo_resumen = eliminar_caracteres(nuevo_resumen)
+    nuevo_resumen = nuevo_resumen.split()
+    nuevo_resumen = eliminar_numeros_lista(nuevo_resumen)
+    nuevo_resumen = [elemento.lower() for elemento in nuevo_resumen]
+    nuevo_resumen = list(filter(None, nuevo_resumen))
+    nuevo_resumen = eliminar_stopwords(nuevo_resumen)
+    nuevo_resumen = eliminar_caracteres_unicos(nuevo_resumen)
+    return nuevo_resumen
+
+
+from collections import Counter
+
+def obtener_palabras_frecuentes(lista):
+    frecuencia = Counter(lista)
+    palabras_frecuentes = [(palabra, frecuencia[palabra]) for palabra, _ in frecuencia.most_common(20)]
+    return palabras_frecuentes
+
+from collections import Counter
+
+def obtener_palabras_frecuentes_todas(lista):
+    frecuencia = Counter(lista)
+    palabras_frecuentes = frecuencia.most_common()
+    return palabras_frecuentes
+
+
+
+
+import matplotlib.pyplot as plt
+import numpy as np
+
+
+
+def graficar_barras(palabras_frecuentes):
+    palabras = [palabra for palabra, _ in palabras_frecuentes]
+    frecuencias = [frecuencia for _, frecuencia in palabras_frecuentes]
+
+     # Configurar el gráfico de barras
+    cmap = plt.cm.get_cmap('Set3')  # Obtener una paleta de colores
+    colores = cmap(np.linspace(0, 1, len(frecuencias)))  # Generar colores únicos para cada barra
+
+    plt.bar(palabras, frecuencias, color=colores)
+    plt.xlabel('Palabras')
+    plt.ylabel('Frecuencia')
+    plt.title('20 Palabras más frecuentes\n')
+    plt.xticks(rotation=90)  # Rotar las etiquetas del eje x para mayor legibilidad
+
+    plt.tight_layout() # Ajustar automáticamente la visualizació
+
+    # Mostrar el gráfico
+    plt.show()
+
+
+def graficar_torta(palabras_frecuentes):
+    # Obtener las etiquetas (palabras) y los valores (frecuencias)
+    palabras = [palabra for palabra, _ in palabras_frecuentes]
+    frecuencias = [frecuencia for _, frecuencia in palabras_frecuentes]
+
+    # Crear el gráfico de torta
+    plt.pie(frecuencias, labels=palabras, autopct='%1.1f%%')
+
+    # Configurar el aspecto del gráfico
+    plt.axis('equal')  # Hacer que el gráfico de torta sea circular
+    plt.title('20 Palabras más frecuentes\n')
+
+    # Mostrar el gráfico
+    plt.show()

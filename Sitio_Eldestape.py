@@ -105,12 +105,13 @@ def web_scrapping_div(links):
     return listdiv
 
 
-def obtener_lista_url_completa(url_base):
-    lista_url_completa = []
-    textobusq=""
-    textobusq = input('\nIngrese la sección de noticias: ')###Es con el item selecionado
-    url = url_base+'/seccion/' + textobusq + '/'
 
+
+def obtener_lista_url_completa(url_base,textobusq):
+    lista_url_completa = []
+    #textobusq=""
+    #textobusq = input('\nIngrese la sección de noticias: ')###Es con el item selecionado
+    url = url_base+'/seccion/' + textobusq + '/'
     lista_de_noticias = conseguir_url(url)
     lista_de_noticias = list(set(lista_de_noticias))
     lista_de_noticias.sort()
@@ -120,7 +121,7 @@ def obtener_lista_url_completa(url_base):
 
     return lista_url_completa,textobusq
 
-
+"""
 
 url_base = 'https://www.eldestapeweb.com'
 
@@ -137,3 +138,4 @@ indice_invertido = funciones.crear_indice_invertido(list_dic_noticias)
 funciones.buscar_y_mostrar_noticias(indice_invertido)
 
 
+"""

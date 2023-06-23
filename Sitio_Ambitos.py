@@ -28,18 +28,26 @@ def web_scraping(links,textobusq,url_base):
         response = requests.get(url)
         html = response.text
         soup = BeautifulSoup(html, 'html.parser')
-        titulo = soup.find('div', class_='col-12 col-md-8 detail-news__main-column')
+        #titulo = soup.find('div', class_='col-12 col-md-8 detail-news__main-column') #para el titulo y resumen
+        
+        titulo = soup.find('h1', class_='news-headline__title')
         if titulo:
-                titulo = titulo.find('h1').text.strip()
+            titulo = titulo.text.strip()
         else:
-                titulo = ""  # O cualquier valor por defecto que desees asignar si no se encuentra el elemento
+            titulo = ""  # O cualquier valor por defecto que desees asignar si no se encuentra el elemento
+
 
         #obtener subtitulo de la noticia
-        resumen = soup.find('div', class_='col-12 col-md-8 detail-news__main-column')
+        resumen = soup.find('h2', class_='news-headline__article-summary')
+
         if resumen:
-                resumen = resumen.find('h2').text.strip()
+            resumen = resumen.text.strip()
         else:
             resumen = ""  # O cualquier valor por defecto que desees asignar si no se encuentra el elemento
+
+
+
+
 
         div_contenido = soup.find('div', class_='col-12 col-md-8 detail-news__main-column')
 
@@ -78,15 +86,15 @@ def web_scrapping_div(links):
     else:
             print("")
     listdiv=funciones.procesar_lista(listdiv)
-    #listdiv.remove('últimas-noticias')
+    listdiv.remove('ultimas-noticias')
     return listdiv
 
 
 
-def obtener_lista_url_completa(url_base):
+def obtener_lista_url_completa(url_base,textobusq):
     lista_url_completa = []
-    textobusq=""
-    textobusq = input('\nIngrese la sección de noticias: ')###Es con el item selecionado
+    #textobusq=""
+    #textobusq = input('\nIngrese la sección de noticias: ')###Es con el item selecionado
     url = url_base + '/contenidos/' + textobusq + '.html'
     lista_de_noticias = conseguir_url(url, textobusq)
     lista_de_noticias = list(set(lista_de_noticias))
@@ -95,13 +103,11 @@ def obtener_lista_url_completa(url_base):
     lista_url_completa.extend(lista_de_noticias)
     return lista_url_completa,textobusq
 
-
+"""
 
 url_base = 'https://www.ambito.com'
 
 lista_url_completa,textobusq = obtener_lista_url_completa(url_base)
-
-print(lista_url_completa)
 
 listdiv=web_scrapping_div(url_base)
 
@@ -113,3 +119,4 @@ indice_invertido = funciones.crear_indice_invertido(list_dic_noticias)
 
 funciones.buscar_y_mostrar_noticias(indice_invertido)
 
+"""

@@ -13,6 +13,7 @@ def conseguir_url(url,textobusq):
                 for link in links:
                     href = link.get('href')
                     if href and href.startswith('https://www.perfil.com/noticias/'+textobusq+'/'):
+                    #if href and href.startswith('https://www.perfil.com/seccion/'+textobusq):
                         urls_noticias.append(href)          
             return urls_noticias
 #####################################################################################################
@@ -97,14 +98,16 @@ def web_scrapping_div(links):
     for elemento in elementos_eliminar:
         if elemento in listdiv:
             listdiv.remove(elemento)
+    
+    listdiv=funciones.procesar_lista(listdiv)
         
     return listdiv
 
 
-def obtener_lista_url_completa(url_base):
+def obtener_lista_url_completa(url_base,textobusq):
     lista_url_completa = []
-    textobusq=""
-    textobusq = input('\nIngrese la sección de noticias: ')###Es con el item selecionado
+    #textobusq=""
+    #textobusq = input('\nIngrese la sección de noticias: ')###Es con el item selecionado
     url=url_base+'seccion/'+textobusq
     lista_de_noticias = conseguir_url(url, textobusq)
     lista_de_noticias = list(set(lista_de_noticias))
@@ -113,7 +116,7 @@ def obtener_lista_url_completa(url_base):
     lista_url_completa.extend(lista_de_noticias)
     return lista_url_completa,textobusq
 
-
+"""
 
 url_base = 'https://www.perfil.com/'
 
@@ -128,6 +131,9 @@ funciones.procesar_noticias(list_dic_noticias)
 indice_invertido = funciones.crear_indice_invertido(list_dic_noticias)
 
 funciones.buscar_y_mostrar_noticias(indice_invertido)
+
+
+"""
 
 
 
