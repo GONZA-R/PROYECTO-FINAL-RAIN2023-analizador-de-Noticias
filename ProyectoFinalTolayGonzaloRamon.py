@@ -244,7 +244,7 @@ def abrir_ventana_principal():
     btn_enviar.place(x=100, y=200)
 
     # Crear TextBox
-    label3 = tk.Label(ventana, text="Direcciones")
+    label3 = tk.Label(ventana, text="Direcciones(Seleccione una para acceder)")
     label3.place(x=370, y=30)
     text_box = scrolledtext.ScrolledText(ventana, width=80, height=12)
     text_box.place(x=370, y=60)
@@ -293,7 +293,7 @@ def abrir_ventana_principal():
     boton_borrar.place(x=160, y=350)
 
     # Crear cuadro de texto de salida
-    label5 = tk.Label(ventana, text="Sitios WEB coincidentes con la consulta")
+    label5 = tk.Label(ventana, text="Sitios WEB coincidentes con la consulta (Selecciones uno)")
     label5.place(x=370, y=270)
     cuadro_salida = scrolledtext.ScrolledText(ventana, width=80,height=12)
     cuadro_salida.place(x=370, y=310)

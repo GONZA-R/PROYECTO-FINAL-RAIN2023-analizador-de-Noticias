@@ -72,9 +72,7 @@ def web_scraping(links,textobusq,url_base):
 
 #####################################################################################################
 
-listdiv=['Elecciones 2023', 'Deportivo', 'Show', 
-         'Tecno', 'Autos', 'Estilo', 'Campo',
-         'Política', 'Sociedad', 'Economía', 'Internacional', 'Policiales', 'Opinión', 'Clima', 
+listdiv=['Política', 'Sociedad', 'Economía', 'Internacional', 'Policiales', 'Opinión', 'Clima', 
          'Horóscopo', 'Turismo', 'General'
          ]
 

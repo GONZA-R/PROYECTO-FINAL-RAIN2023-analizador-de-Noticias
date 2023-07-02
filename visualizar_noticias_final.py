@@ -13,8 +13,43 @@ def abrir_estadisticas():
     funciones.graficar_barras(listfrecc2)
     funciones.graficar_torta(listfrecc2)
 
+    
+###################################333
+def obtener_palabra_seleccionada(event):
+    global textboxfrecc
+    if textboxfrecc.tag_ranges(tk.SEL):
+        palabra_seleccionada = textboxfrecc.get(tk.SEL_FIRST, tk.SEL_LAST)
+        resaltar_palabra(palabra_seleccionada)
+
+
+import re
+
+def resaltar_palabra(palabra_seleccionada):
+    global texto_contenido
+    try:
+        if palabra_seleccionada:
+            contenido_resaltado = texto_contenido.get("1.0", "end")
+            #contenido_resaltado = contenido_resaltado.replace(palabra_seleccionada, f"{palabra_seleccionada}", 1)
+            contenido_resaltado = re.sub(re.escape(palabra_seleccionada), f"{palabra_seleccionada}", contenido_resaltado, flags=re.IGNORECASE)
+
+            texto_contenido.delete("1.0", "end")
+            texto_contenido.insert("1.0", contenido_resaltado)
+            inicio = "1.0"
+            while True:
+                inicio = texto_contenido.search(palabra_seleccionada, inicio, "end")
+                if not inicio:
+                    break
+                fin = f"{inicio}+{len(palabra_seleccionada)}c"
+                texto_contenido.tag_add("highlight", inicio, fin)
+                inicio = fin
+    except tk.TclError:
+        pass
+#########################################
+
+
 
 def listas_frecuencias():
+    global textboxfrecc################
 
     ventanafreccuencia=tk.Tk()
     ventanafreccuencia.title("Listas de Frecuencias")
@@ -28,24 +63,25 @@ def listas_frecuencias():
     textboxfrecc = scrolledtext.ScrolledText(ventanafreccuencia, height=10, width=45)
     textboxfrecc.pack()
     
-
-
     
     texto_resultado = ""
     for palabra, frecuencia in resultado:
-        texto_resultado += f"Palabra: {palabra}, Frecuencia: {frecuencia}\n"
+        texto_resultado += f"Palabra: {palabra} , Frecuencia: {frecuencia}\n"
 
     textboxfrecc.delete("1.0", tk.END)  # Limpiar el contenido actual del textbox
     textboxfrecc.insert(tk.END, texto_resultado)
+
+    textboxfrecc.bind("<Button-1>", obtener_palabra_seleccionada) ########
 
 
     ventanafreccuencia.mainloop()
 
 
-
+from datetime import datetime
 
 def mostrar_noticia(titulo, resumen, contenido):
     global ventana_noticia
+    global texto_contenido #########
 
     ventana_noticia = tk.Tk()
     ventana_noticia.title("Noticia")
@@ -54,6 +90,7 @@ def mostrar_noticia(titulo, resumen, contenido):
     ventana_noticia.geometry("900x500")  # Cambia las dimensiones según tus necesidades
 
     ventana_noticia.configure(bg="lightblue")
+
 
     etiqueta_titulo = tk.Label(ventana_noticia, text=titulo, font=("Helvetica", 16, "bold"))
     etiqueta_titulo.pack(pady=10)
@@ -64,6 +101,12 @@ def mostrar_noticia(titulo, resumen, contenido):
     texto_contenido = scrolledtext.ScrolledText(ventana_noticia, wrap=tk.WORD, width=90, height=12)
     texto_contenido.insert(tk.INSERT, contenido)
     texto_contenido.pack(pady=10)
+
+
+    texto_contenido.tag_configure("highlight", background="yellow")#######################3
+
+    
+
 
     boton_cerrar = tk.Button(ventana_noticia, text="Cerrar", command=cerrar_ventana)
     boton_cerrar.place(x=100, y=350)

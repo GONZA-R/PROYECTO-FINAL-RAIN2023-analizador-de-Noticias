@@ -207,11 +207,18 @@ def obtener_palabras_frecuentes(lista):
     palabras_frecuentes = [(palabra, frecuencia[palabra]) for palabra, _ in frecuencia.most_common(20)]
     return palabras_frecuentes
 
+"""
 from collections import Counter
 
 def obtener_palabras_frecuentes_todas(lista):
     frecuencia = Counter(lista)
     palabras_frecuentes = frecuencia.most_common()
+    return palabras_frecuentes
+"""
+
+def obtener_palabras_frecuentes_todas(lista):
+    frecuencia = Counter(lista)
+    palabras_frecuentes = sorted(frecuencia.items(), key=lambda x: x[0])
     return palabras_frecuentes
 
 
